@@ -1,0 +1,65 @@
+"use strict";
+exports.id = 81286;
+exports.ids = [81286];
+exports.modules = {
+
+/***/ 81286:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AccordionDemo)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78553);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8834);
+
+
+function AccordionDemo() {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.Accordion, {
+        type: "single",
+        collapsible: true,
+        className: "w-full",
+        children: [
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionItem, {
+                value: "item-1",
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionTrigger, {
+                        children: "Is it accessible?"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionContent, {
+                        children: "Yes. It adheres to the WAI-ARIA design pattern."
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionItem, {
+                value: "item-2",
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionTrigger, {
+                        children: "Is it styled?"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionContent, {
+                        children: "Yes. It comes with default styles that matches the other components' aesthetic."
+                    })
+                ]
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionItem, {
+                value: "item-3",
+                children: [
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionTrigger, {
+                        children: "Is it animated?"
+                    }),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_accordion__WEBPACK_IMPORTED_MODULE_1__.AccordionContent, {
+                        children: "Yes. It's animated by default, but you can disable it if you prefer."
+                    })
+                ]
+            })
+        ]
+    });
+}
+
+
+/***/ })
+
+};
+;

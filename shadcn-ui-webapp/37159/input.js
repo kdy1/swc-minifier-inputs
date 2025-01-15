@@ -1,0 +1,305 @@
+"use strict";
+exports.id = 37159;
+exports.ids = [37159,64644,57985];
+exports.modules = {
+
+/***/ 37159:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ TextareaForm)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78553);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hookform_resolvers_zod__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(65394);
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11903);
+/* harmony import */ var zod__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61968);
+/* harmony import */ var _registry_new_york_hooks_use_toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(60395);
+/* harmony import */ var _registry_new_york_ui_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37709);
+/* harmony import */ var _registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(64644);
+/* harmony import */ var _registry_new_york_ui_textarea__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(57985);
+/* __next_internal_client_entry_do_not_use__ default auto */ 
+
+
+
+
+
+
+
+const FormSchema = zod__WEBPACK_IMPORTED_MODULE_5__.z.object({
+    bio: zod__WEBPACK_IMPORTED_MODULE_5__.z.string().min(10, {
+        message: "Bio must be at least 10 characters."
+    }).max(160, {
+        message: "Bio must not be longer than 30 characters."
+    })
+});
+function TextareaForm() {
+    const form = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_6__/* .useForm */ .cI)({
+        resolver: (0,_hookform_resolvers_zod__WEBPACK_IMPORTED_MODULE_7__/* .zodResolver */ .F)(FormSchema)
+    });
+    function onSubmit(data) {
+        (0,_registry_new_york_hooks_use_toast__WEBPACK_IMPORTED_MODULE_1__.toast)({
+            title: "You submitted the following values:",
+            description: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("pre", {
+                className: "mt-2 w-[340px] rounded-md bg-slate-950 p-4",
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("code", {
+                    className: "text-white",
+                    children: JSON.stringify(data, null, 2)
+                })
+            })
+        });
+    }
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.Form, {
+        ...form,
+        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+            onSubmit: form.handleSubmit(onSubmit),
+            className: "w-2/3 space-y-6",
+            children: [
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormField, {
+                    control: form.control,
+                    name: "bio",
+                    render: ({ field })=>/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormItem, {
+                            children: [
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormLabel, {
+                                    children: "Bio"
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormControl, {
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_textarea__WEBPACK_IMPORTED_MODULE_4__.Textarea, {
+                                        placeholder: "Tell us a little bit about yourself",
+                                        className: "resize-none",
+                                        ...field
+                                    })
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormDescription, {
+                                    children: [
+                                        "You can ",
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                                            children: "@mention"
+                                        }),
+                                        " other users and organizations."
+                                    ]
+                                }),
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_form__WEBPACK_IMPORTED_MODULE_3__.FormMessage, {})
+                            ]
+                        })
+                }),
+                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_button__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                    type: "submit",
+                    children: "Submit"
+                })
+            ]
+        })
+    });
+}
+
+
+/***/ }),
+
+/***/ 64644:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Form: () => (/* binding */ Form),
+/* harmony export */   FormControl: () => (/* binding */ FormControl),
+/* harmony export */   FormDescription: () => (/* binding */ FormDescription),
+/* harmony export */   FormField: () => (/* binding */ FormField),
+/* harmony export */   FormItem: () => (/* binding */ FormItem),
+/* harmony export */   FormLabel: () => (/* binding */ FormLabel),
+/* harmony export */   FormMessage: () => (/* binding */ FormMessage),
+/* harmony export */   useFormField: () => (/* binding */ useFormField)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78553);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(70615);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _radix_ui_react_slot__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(80464);
+/* harmony import */ var react_hook_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11903);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(26910);
+/* harmony import */ var _registry_new_york_ui_label__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(41086);
+/* __next_internal_client_entry_do_not_use__ useFormField,Form,FormItem,FormLabel,FormControl,FormDescription,FormMessage,FormField auto */ 
+
+
+
+
+
+const Form = react_hook_form__WEBPACK_IMPORTED_MODULE_3__/* .FormProvider */ .RV;
+const FormFieldContext = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+const FormField = ({ ...props })=>{
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(FormFieldContext.Provider, {
+        value: {
+            name: props.name
+        },
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_hook_form__WEBPACK_IMPORTED_MODULE_3__/* .Controller */ .Qr, {
+            ...props
+        })
+    });
+};
+const useFormField = ()=>{
+    const fieldContext = react__WEBPACK_IMPORTED_MODULE_1__.useContext(FormFieldContext);
+    const itemContext = react__WEBPACK_IMPORTED_MODULE_1__.useContext(FormItemContext);
+    const { getFieldState, formState } = (0,react_hook_form__WEBPACK_IMPORTED_MODULE_3__/* .useFormContext */ .Gc)();
+    const fieldState = getFieldState(fieldContext.name, formState);
+    if (!fieldContext) {
+        throw new Error("useFormField should be used within <FormField>");
+    }
+    const { id } = itemContext;
+    return {
+        id,
+        name: fieldContext.name,
+        formItemId: `${id}-form-item`,
+        formDescriptionId: `${id}-form-item-description`,
+        formMessageId: `${id}-form-item-message`,
+        ...fieldState
+    };
+};
+const FormItemContext = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.createContext({});
+const FormItem = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, ...props }, ref)=>{
+    const id = react__WEBPACK_IMPORTED_MODULE_1__.useId();
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(FormItemContext.Provider, {
+        value: {
+            id
+        },
+        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+            ref: ref,
+            className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.cn)("space-y-2", className),
+            ...props
+        })
+    });
+});
+FormItem.displayName = "FormItem";
+const FormLabel = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, ...props }, ref)=>{
+    const { error, formItemId } = useFormField();
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_registry_new_york_ui_label__WEBPACK_IMPORTED_MODULE_2__.Label, {
+        ref: ref,
+        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.cn)(error && "text-destructive", className),
+        htmlFor: formItemId,
+        ...props
+    });
+});
+FormLabel.displayName = "FormLabel";
+const FormControl = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ ...props }, ref)=>{
+    const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_radix_ui_react_slot__WEBPACK_IMPORTED_MODULE_5__/* .Slot */ .g7, {
+        ref: ref,
+        id: formItemId,
+        "aria-describedby": !error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`,
+        "aria-invalid": !!error,
+        ...props
+    });
+});
+FormControl.displayName = "FormControl";
+const FormDescription = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, ...props }, ref)=>{
+    const { formDescriptionId } = useFormField();
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+        ref: ref,
+        id: formDescriptionId,
+        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.cn)("text-[0.8rem] text-muted-foreground", className),
+        ...props
+    });
+});
+FormDescription.displayName = "FormDescription";
+const FormMessage = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, children, ...props }, ref)=>{
+    const { error, formMessageId } = useFormField();
+    const body = error ? String(error?.message) : children;
+    if (!body) {
+        return null;
+    }
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+        ref: ref,
+        id: formMessageId,
+        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.cn)("text-[0.8rem] font-medium text-destructive", className),
+        ...props,
+        children: body
+    });
+});
+FormMessage.displayName = "FormMessage";
+
+
+
+/***/ }),
+
+/***/ 41086:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Label: () => (/* binding */ Label)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78553);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(70615);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _radix_ui_react_label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82471);
+/* harmony import */ var class_variance_authority__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37207);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(26910);
+/* __next_internal_client_entry_do_not_use__ Label auto */ 
+
+
+
+
+const labelVariants = (0,class_variance_authority__WEBPACK_IMPORTED_MODULE_2__/* .cva */ .j)("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
+const Label = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, ...props }, ref)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_radix_ui_react_label__WEBPACK_IMPORTED_MODULE_3__/* .Root */ .f, {
+        ref: ref,
+        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_4__.cn)(labelVariants(), className),
+        ...props
+    }));
+Label.displayName = _radix_ui_react_label__WEBPACK_IMPORTED_MODULE_3__/* .Root */ .f.displayName;
+
+
+
+/***/ }),
+
+/***/ 57985:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Textarea: () => (/* binding */ Textarea)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(78553);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(70615);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _lib_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26910);
+
+
+
+const Textarea = /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(({ className, ...props }, ref)=>{
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("textarea", {
+        className: (0,_lib_utils__WEBPACK_IMPORTED_MODULE_2__.cn)("flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm", className),
+        ref: ref,
+        ...props
+    });
+});
+Textarea.displayName = "Textarea";
+
+
+
+/***/ }),
+
+/***/ 65394:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  F: () => (/* binding */ t)
+});
+
+// EXTERNAL MODULE: ../../node_modules/.pnpm/react-hook-form@7.44.2_react@18.2.0/node_modules/react-hook-form/dist/index.esm.mjs
+var index_esm = __webpack_require__(11903);
+;// CONCATENATED MODULE: ../../node_modules/.pnpm/@hookform+resolvers@3.1.0_react-hook-form@7.44.2_react@18.2.0_/node_modules/@hookform/resolvers/dist/resolvers.mjs
+var e=function(i,e,t){if(i&&"reportValidity"in i){var f=(0,index_esm/* get */.U2)(t,e);i.setCustomValidity(f&&f.message||""),i.reportValidity()}},resolvers_t=function(r,i){var t=function(t){var f=i.fields[t];f&&f.ref&&"reportValidity"in f.ref?e(f.ref,t,r):f.refs&&f.refs.forEach(function(i){return e(i,t,r)})};for(var f in i.fields)t(f)},f=function(e,f){f.shouldUseNativeValidation&&resolvers_t(e,f);var o={};for(var a in e){var n=(0,index_esm/* get */.U2)(f.fields,a);(0,index_esm/* set */.t8)(o,a,Object.assign(e[a]||{},{ref:n&&n.ref}))}return o};
+//# sourceMappingURL=resolvers.module.js.map
+
+;// CONCATENATED MODULE: ../../node_modules/.pnpm/@hookform+resolvers@3.1.0_react-hook-form@7.44.2_react@18.2.0_/node_modules/@hookform/resolvers/zod/dist/zod.mjs
+var n=function(e,o){for(var n={};e.length;){var t=e[0],s=t.code,i=t.message,a=t.path.join(".");if(!n[a])if("unionErrors"in t){var u=t.unionErrors[0].errors[0];n[a]={message:u.message,type:u.code}}else n[a]={message:i,type:s};if("unionErrors"in t&&t.unionErrors.forEach(function(r){return r.errors.forEach(function(r){return e.push(r)})}),o){var c=n[a].types,f=c&&c[t.code];n[a]=(0,index_esm/* appendErrors */.KN)(a,o,n,s,f?[].concat(f,t.message):t.message)}e.shift()}return n},t=function(r,t,s){return void 0===s&&(s={}),function(i,a,u){try{return Promise.resolve(function(o,n){try{var a=Promise.resolve(r["sync"===s.mode?"parse":"parseAsync"](i,t)).then(function(r){return u.shouldUseNativeValidation&&resolvers_t({},u),{errors:{},values:s.raw?i:r}})}catch(r){return n(r)}return a&&a.then?a.then(void 0,n):a}(0,function(r){if(function(r){return null!=r.errors}(r))return{values:{},errors:f(n(r.errors,!u.shouldUseNativeValidation&&"all"===u.criteriaMode),u)};throw r}))}catch(r){return Promise.reject(r)}}};
+//# sourceMappingURL=zod.module.js.map
+
+
+/***/ })
+
+};
+;
