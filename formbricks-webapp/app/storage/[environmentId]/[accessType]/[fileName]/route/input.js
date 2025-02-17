@@ -1,0 +1,3075 @@
+(() => {
+var exports = {};
+exports.id = 7594;
+exports.ids = [7594];
+exports.modules = {
+
+/***/ 191043:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@aws-sdk/client-s3");
+
+/***/ }),
+
+/***/ 741000:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@aws-sdk/s3-presigned-post");
+
+/***/ }),
+
+/***/ 531701:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@aws-sdk/s3-request-presigner");
+
+/***/ }),
+
+/***/ 896330:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@prisma/client");
+
+/***/ }),
+
+/***/ 560483:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@prisma/client/scripts/default-index.js");
+
+/***/ }),
+
+/***/ 710846:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/compiled/next-server/app-page.runtime.prod.js");
+
+/***/ }),
+
+/***/ 744870:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/compiled/next-server/app-route.runtime.prod.js");
+
+/***/ }),
+
+/***/ 419121:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/server/app-render/action-async-storage.external.js");
+
+/***/ }),
+
+/***/ 903295:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/server/app-render/after-task-async-storage.external.js");
+
+/***/ }),
+
+/***/ 529294:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/server/app-render/work-async-storage.external.js");
+
+/***/ }),
+
+/***/ 663033:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/server/app-render/work-unit-async-storage.external.js");
+
+/***/ }),
+
+/***/ 912412:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
+/***/ 979428:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("buffer");
+
+/***/ }),
+
+/***/ 455511:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ 594735:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("events");
+
+/***/ }),
+
+/***/ 79748:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs/promises");
+
+/***/ }),
+
+/***/ 781630:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ 55591:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ 333873:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("path");
+
+/***/ }),
+
+/***/ 111723:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("querystring");
+
+/***/ }),
+
+/***/ 927910:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ 379551:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("url");
+
+/***/ }),
+
+/***/ 328354:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+/***/ 74075:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
+
+/***/ }),
+
+/***/ 344708:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:https");
+
+/***/ }),
+
+/***/ 176760:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("node:path");
+
+/***/ }),
+
+/***/ 752296:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  patchFetch: () => (/* binding */ patchFetch),
+  routeModule: () => (/* binding */ routeModule),
+  serverHooks: () => (/* binding */ serverHooks),
+  workAsyncStorage: () => (/* binding */ workAsyncStorage),
+  workUnitAsyncStorage: () => (/* binding */ workUnitAsyncStorage)
+});
+
+// NAMESPACE OBJECT: ./app/storage/[environmentId]/[accessType]/[fileName]/route.ts
+var route_namespaceObject = {};
+__webpack_require__.r(route_namespaceObject);
+__webpack_require__.d(route_namespaceObject, {
+  DELETE: () => (DELETE),
+  GET: () => (GET)
+});
+
+// EXTERNAL MODULE: ../../node_modules/next/dist/server/route-modules/app-route/module.compiled.js
+var module_compiled = __webpack_require__(831271);
+// EXTERNAL MODULE: ../../node_modules/next/dist/server/route-kind.js
+var route_kind = __webpack_require__(291232);
+// EXTERNAL MODULE: ../../node_modules/next/dist/server/lib/patch-fetch.js
+var patch_fetch = __webpack_require__(318079);
+// EXTERNAL MODULE: ./app/api/v1/auth.ts
+var auth = __webpack_require__(408498);
+// EXTERNAL MODULE: ./app/lib/api/response.ts
+var response = __webpack_require__(328779);
+// EXTERNAL MODULE: ./app/lib/api/validator.ts
+var validator = __webpack_require__(105032);
+// EXTERNAL MODULE: ../../node_modules/next/cache.js
+var cache = __webpack_require__(87863);
+;// ../../packages/lib/storage/cache.ts
+
+const storageCache = {
+    tag: {
+        byFileKey (filekey) {
+            return `storage-filekey-${filekey}`;
+        }
+    },
+    revalidate ({ fileKey }) {
+        (0,cache.revalidateTag)(this.tag.byFileKey(fileKey));
+    }
+};
+
+// EXTERNAL MODULE: ../../packages/lib/storage/service.ts
+var service = __webpack_require__(888843);
+;// ./app/storage/[environmentId]/[accessType]/[fileName]/lib/delete-file.ts
+
+
+
+const handleDeleteFile = async (environmentId, accessType, fileName)=>{
+    try {
+        const { message, success, code } = await (0,service/* deleteFile */.Ww)(environmentId, accessType, fileName);
+        if (success) {
+            // revalidate cache
+            storageCache.revalidate({
+                fileKey: `${environmentId}/${accessType}/${fileName}`
+            });
+            return response/* responses */.n.successResponse(message);
+        }
+        if (code === 404) {
+            return response/* responses */.n.notFoundResponse("File", "File not found");
+        }
+        return response/* responses */.n.internalServerErrorResponse(message);
+    } catch (err) {
+        return response/* responses */.n.internalServerErrorResponse("Something went wrong");
+    }
+};
+
+// EXTERNAL MODULE: ./modules/auth/lib/authOptions.ts + 8 modules
+var authOptions = __webpack_require__(136015);
+// EXTERNAL MODULE: ../../node_modules/next-auth/index.js
+var next_auth = __webpack_require__(963302);
+// EXTERNAL MODULE: ../../packages/lib/environment/auth.ts
+var environment_auth = __webpack_require__(266640);
+// EXTERNAL MODULE: ../../packages/types/storage.ts
+var storage = __webpack_require__(3929);
+// EXTERNAL MODULE: ../../node_modules/next/dist/api/navigation.react-server.js
+var navigation_react_server = __webpack_require__(145796);
+// EXTERNAL MODULE: external "node:path"
+var external_node_path_ = __webpack_require__(176760);
+var external_node_path_default = /*#__PURE__*/__webpack_require__.n(external_node_path_);
+// EXTERNAL MODULE: ../../packages/lib/constants.ts
+var constants = __webpack_require__(836919);
+;// ./app/storage/[environmentId]/[accessType]/[fileName]/lib/get-file.ts
+
+
+
+
+
+const getFile = async (environmentId, accessType, fileName)=>{
+    if (!(0,constants/* isS3Configured */.$Y)()) {
+        try {
+            const { fileBuffer, metaData } = await (0,service/* getLocalFile */.IT)(external_node_path_default().join(constants/* UPLOADS_DIR */.xG, environmentId, accessType, fileName));
+            return new Response(fileBuffer, {
+                headers: {
+                    "Content-Type": metaData.contentType,
+                    "Content-Disposition": "attachment",
+                    "Cache-Control": "public, max-age=1200, s-maxage=1200, stale-while-revalidate=300",
+                    Vary: "Accept-Encoding"
+                }
+            });
+        } catch (err) {
+            (0,navigation_react_server.notFound)();
+        }
+    }
+    try {
+        const signedUrl = await (0,service/* getS3File */.Pe)(`${environmentId}/${accessType}/${fileName}`);
+        return new Response(null, {
+            status: 302,
+            headers: {
+                Location: signedUrl,
+                "Cache-Control": accessType === "public" ? `public, max-age=3600, s-maxage=3600, stale-while-revalidate=300` : `public, max-age=600, s-maxage=3600, stale-while-revalidate=300`
+            }
+        });
+    } catch (error) {
+        if (error instanceof Error && error.name === "NoSuchKey") {
+            return response/* responses */.n.notFoundResponse("File not found", fileName);
+        }
+        return response/* responses */.n.internalServerErrorResponse("Internal server error");
+    }
+};
+
+;// ./app/storage/[environmentId]/[accessType]/[fileName]/route.ts
+
+
+
+
+
+
+
+
+
+const GET = async (request, props)=>{
+    const params = await props.params;
+    const paramValidation = storage/* ZStorageRetrievalParams */._k.safeParse(params);
+    if (!paramValidation.success) {
+        return response/* responses */.n.badRequestResponse("Fields are missing or incorrectly formatted", (0,validator/* transformErrorToDetails */.m)(paramValidation.error), true);
+    }
+    const { environmentId, accessType, fileName: fileNameOG } = params;
+    const fileName = decodeURIComponent(fileNameOG);
+    if (accessType === "public") {
+        return await getFile(environmentId, accessType, fileName);
+    }
+    // if the user is authenticated via the session
+    const session = await (0,next_auth.getServerSession)(authOptions/* authOptions */.N);
+    if (!session?.user) {
+        // check for api key auth
+        const res = await (0,auth/* authenticateRequest */.b)(request);
+        if (!res) {
+            return response/* responses */.n.notAuthenticatedResponse();
+        }
+        return await getFile(environmentId, accessType, fileName);
+    }
+    const isUserAuthorized = await (0,environment_auth/* hasUserEnvironmentAccess */.n)(session.user.id, environmentId);
+    if (!isUserAuthorized) {
+        return response/* responses */.n.unauthorizedResponse();
+    }
+    return await getFile(environmentId, accessType, fileName);
+};
+const DELETE = async (_, props)=>{
+    const params = await props.params;
+    if (!params.fileName) {
+        return response/* responses */.n.badRequestResponse("Fields are missing or incorrectly formatted", {
+            fileName: "fileName is required"
+        });
+    }
+    const [environmentId, accessType, file] = params.fileName.split("/");
+    const paramValidation = storage/* ZStorageRetrievalParams */._k.safeParse({
+        fileName: file,
+        environmentId,
+        accessType
+    });
+    if (!paramValidation.success) {
+        return response/* responses */.n.badRequestResponse("Fields are missing or incorrectly formatted", (0,validator/* transformErrorToDetails */.m)(paramValidation.error), true);
+    }
+    // check if user is authenticated
+    const session = await (0,next_auth.getServerSession)(authOptions/* authOptions */.N);
+    if (!session?.user) {
+        return response/* responses */.n.notAuthenticatedResponse();
+    }
+    // check if the user has access to the environment
+    const isUserAuthorized = await (0,environment_auth/* hasUserEnvironmentAccess */.n)(session.user.id, environmentId);
+    if (!isUserAuthorized) {
+        return response/* responses */.n.unauthorizedResponse();
+    }
+    return await handleDeleteFile(paramValidation.data.environmentId, paramValidation.data.accessType, paramValidation.data.fileName);
+};
+
+;// ../../node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?page=%2Fstorage%2F%5BenvironmentId%5D%2F%5BaccessType%5D%2F%5BfileName%5D%2Froute&name=app%2Fstorage%2F%5BenvironmentId%5D%2F%5BaccessType%5D%2F%5BfileName%5D%2Froute&pagePath=private-next-app-dir%2Fstorage%2F%5BenvironmentId%5D%2F%5BaccessType%5D%2F%5BfileName%5D%2Froute.ts&appDir=%2FUsers%2Fkdy1%2Fprojects%2Fformbricks%2Fapps%2Fweb%2Fapp&appPaths=%2Fstorage%2F%5BenvironmentId%5D%2F%5BaccessType%5D%2F%5BfileName%5D%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=standalone&nextConfigExperimentalUseEarlyImport=&preferredRegion=&middlewareConfig=e30%3D!
+
+
+
+
+// We inject the nextConfigOutput here so that we can use them in the route
+// module.
+const nextConfigOutput = "standalone"
+const routeModule = new module_compiled.AppRouteRouteModule({
+    definition: {
+        kind: route_kind.RouteKind.APP_ROUTE,
+        page: "/storage/[environmentId]/[accessType]/[fileName]/route",
+        pathname: "/storage/[environmentId]/[accessType]/[fileName]",
+        filename: "route",
+        bundlePath: "app/storage/[environmentId]/[accessType]/[fileName]/route"
+    },
+    resolvedPagePath: "/Users/kdy1/projects/formbricks/apps/web/app/storage/[environmentId]/[accessType]/[fileName]/route.ts",
+    nextConfigOutput,
+    userland: route_namespaceObject
+});
+// Pull out the exports that we need to expose from the module. This should
+// be eliminated when we've moved the other routes to the new format. These
+// are used to hook into the route.
+const { workAsyncStorage, workUnitAsyncStorage, serverHooks } = routeModule;
+function patchFetch() {
+    return (0,patch_fetch.patchFetch)({
+        workAsyncStorage,
+        workUnitAsyncStorage
+    });
+}
+
+
+//# sourceMappingURL=app-route.js.map
+
+/***/ }),
+
+/***/ 587032:
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ 580408:
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ 408498:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   K: () => (/* binding */ handleErrorResponse),
+/* harmony export */   b: () => (/* binding */ authenticateRequest)
+/* harmony export */ });
+/* harmony import */ var _app_lib_api_response__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(328779);
+/* harmony import */ var _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(470641);
+/* harmony import */ var _lib_api_key__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(993240);
+
+
+
+const authenticateRequest = async (request)=>{
+    const apiKey = request.headers.get("x-api-key");
+    if (apiKey) {
+        const environmentId = await (0,_lib_api_key__WEBPACK_IMPORTED_MODULE_1__/* .getEnvironmentIdFromApiKey */ .m)(apiKey);
+        if (environmentId) {
+            const authentication = {
+                type: "apiKey",
+                environmentId
+            };
+            return authentication;
+        }
+        return null;
+    }
+    return null;
+};
+const handleErrorResponse = (error)=>{
+    switch(error.message){
+        case "NotAuthenticated":
+            return _app_lib_api_response__WEBPACK_IMPORTED_MODULE_0__/* .responses */ .n.notAuthenticatedResponse();
+        case "Unauthorized":
+            return _app_lib_api_response__WEBPACK_IMPORTED_MODULE_0__/* .responses */ .n.unauthorizedResponse();
+        default:
+            if (error instanceof _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_2__/* .DatabaseError */ .a$ || error instanceof _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_2__/* .InvalidInputError */ .oC || error instanceof _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_2__/* .ResourceNotFoundError */ .CE) {
+                return _app_lib_api_response__WEBPACK_IMPORTED_MODULE_0__/* .responses */ .n.badRequestResponse(error.message);
+            }
+            return _app_lib_api_response__WEBPACK_IMPORTED_MODULE_0__/* .responses */ .n.internalServerErrorResponse("Some error occurred");
+    }
+};
+
+
+/***/ }),
+
+/***/ 993240:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   m: () => (/* binding */ getEnvironmentIdFromApiKey)
+/* harmony export */ });
+/* harmony import */ var _lib_cache_api_key__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(767630);
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(896330);
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(922728);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _formbricks_database__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(527610);
+/* harmony import */ var _formbricks_lib_cache__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(794356);
+/* harmony import */ var _formbricks_lib_crypto__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(549673);
+/* harmony import */ var _formbricks_lib_utils_validate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(860988);
+/* harmony import */ var _formbricks_types_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(733735);
+/* harmony import */ var _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(470641);
+
+
+
+
+
+
+
+
+
+
+const getEnvironmentIdFromApiKey = (0,react__WEBPACK_IMPORTED_MODULE_2__.cache)(async (apiKey)=>{
+    const hashedKey = (0,_formbricks_lib_crypto__WEBPACK_IMPORTED_MODULE_4__/* .getHash */ .Zd)(apiKey);
+    return (0,_formbricks_lib_cache__WEBPACK_IMPORTED_MODULE_5__/* .cache */ .P)(async ()=>{
+        (0,_formbricks_lib_utils_validate__WEBPACK_IMPORTED_MODULE_6__/* .validateInputs */ .C)([
+            apiKey,
+            _formbricks_types_common__WEBPACK_IMPORTED_MODULE_7__/* .ZString */ .eI
+        ]);
+        if (!apiKey) {
+            throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_8__/* .InvalidInputError */ .oC("API key cannot be null or undefined.");
+        }
+        try {
+            const apiKeyData = await _formbricks_database__WEBPACK_IMPORTED_MODULE_3__/* .prisma */ .z.apiKey.findUnique({
+                where: {
+                    hashedKey
+                },
+                select: {
+                    environmentId: true
+                }
+            });
+            if (!apiKeyData) {
+                throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_8__/* .ResourceNotFoundError */ .CE("apiKey", apiKey);
+            }
+            return apiKeyData.environmentId;
+        } catch (error) {
+            if (error instanceof _prisma_client__WEBPACK_IMPORTED_MODULE_1__.Prisma.PrismaClientKnownRequestError) {
+                throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_8__/* .DatabaseError */ .a$(error.message);
+            }
+            throw error;
+        }
+    }, [
+        `getEnvironmentIdFromApiKey-${apiKey}`
+    ], {
+        tags: [
+            _lib_cache_api_key__WEBPACK_IMPORTED_MODULE_0__/* .apiKeyCache */ .m.tag.byHashedKey(hashedKey)
+        ]
+    })();
+});
+
+
+/***/ }),
+
+/***/ 328779:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   n: () => (/* binding */ responses)
+/* harmony export */ });
+const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization"
+};
+const goneResponse = (message, details, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "gone",
+        message,
+        details: details || {}
+    }, {
+        status: 410,
+        headers
+    });
+};
+const badRequestResponse = (message, details, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "bad_request",
+        message,
+        details: details || {}
+    }, {
+        status: 400,
+        headers
+    });
+};
+const methodNotAllowedResponse = (res, allowedMethods, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "method_not_allowed",
+        message: `The HTTP ${res.req?.method} method is not supported by this route.`,
+        details: {
+            allowed_methods: allowedMethods
+        }
+    }, {
+        status: 405,
+        headers
+    });
+};
+const notFoundResponse = (resourceType, resourceId, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "not_found",
+        message: `${resourceType} not found`,
+        details: {
+            resource_id: resourceId,
+            resource_type: resourceType
+        }
+    }, {
+        status: 404,
+        headers
+    });
+};
+const notAuthenticatedResponse = (cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "not_authenticated",
+        message: "Not authenticated",
+        details: {
+            "x-Api-Key": "Header not provided or API Key invalid"
+        }
+    }, {
+        status: 401,
+        headers
+    });
+};
+const unauthorizedResponse = (cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "unauthorized",
+        message: "You are not authorized to access this resource",
+        details: {}
+    }, {
+        status: 401,
+        headers
+    });
+};
+const forbiddenResponse = (message, cors = false, details = {}, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "forbidden",
+        message,
+        details
+    }, {
+        status: 403,
+        headers
+    });
+};
+const successResponse = (data, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        data
+    }, {
+        status: 200,
+        headers
+    });
+};
+const internalServerErrorResponse = (message, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "internal_server_error",
+        message,
+        details: {}
+    }, {
+        status: 500,
+        headers
+    });
+};
+const tooManyRequestsResponse = (message, cors = false, cache = "private, no-store")=>{
+    const headers = {
+        ...cors && corsHeaders,
+        "Cache-Control": cache
+    };
+    return Response.json({
+        code: "internal_server_error",
+        message,
+        details: {}
+    }, {
+        status: 429,
+        headers
+    });
+};
+const responses = {
+    goneResponse,
+    badRequestResponse,
+    internalServerErrorResponse,
+    methodNotAllowedResponse,
+    notAuthenticatedResponse,
+    unauthorizedResponse,
+    notFoundResponse,
+    successResponse,
+    tooManyRequestsResponse,
+    forbiddenResponse
+};
+
+
+/***/ }),
+
+/***/ 105032:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   m: () => (/* binding */ transformErrorToDetails)
+/* harmony export */ });
+const transformErrorToDetails = (error)=>{
+    const details = {};
+    for (const issue of error.issues){
+        details[issue.path.join(".")] = issue.message;
+    }
+    return details;
+};
+
+
+/***/ }),
+
+/***/ 767630:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   m: () => (/* binding */ apiKeyCache)
+/* harmony export */ });
+/* harmony import */ var next_cache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(87863);
+/* harmony import */ var next_cache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_cache__WEBPACK_IMPORTED_MODULE_0__);
+
+const apiKeyCache = {
+    tag: {
+        byId (id) {
+            return `apiKeys-${id}`;
+        },
+        byEnvironmentId (environmentId) {
+            return `environments-${environmentId}-apiKeys`;
+        },
+        byHashedKey (hashedKey) {
+            return `apiKeys-${hashedKey}-apiKey`;
+        }
+    },
+    revalidate ({ id, environmentId, hashedKey }) {
+        if (id) {
+            (0,next_cache__WEBPACK_IMPORTED_MODULE_0__.revalidateTag)(this.tag.byId(id));
+        }
+        if (environmentId) {
+            (0,next_cache__WEBPACK_IMPORTED_MODULE_0__.revalidateTag)(this.tag.byEnvironmentId(environmentId));
+        }
+        if (hashedKey) {
+            (0,next_cache__WEBPACK_IMPORTED_MODULE_0__.revalidateTag)(this.tag.byHashedKey(hashedKey));
+        }
+    }
+};
+
+
+/***/ }),
+
+/***/ 136015:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  N: () => (/* binding */ authOptions)
+});
+
+// EXTERNAL MODULE: external "@prisma/client"
+var client_ = __webpack_require__(896330);
+// EXTERNAL MODULE: ../../node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react.js
+var react = __webpack_require__(922728);
+// EXTERNAL MODULE: ../../packages/database/src/index.ts + 1 modules
+var src = __webpack_require__(527610);
+// EXTERNAL MODULE: ../../packages/lib/cache.ts
+var cache = __webpack_require__(794356);
+// EXTERNAL MODULE: ../../packages/lib/user/cache.ts
+var user_cache = __webpack_require__(323798);
+// EXTERNAL MODULE: ../../packages/lib/utils/validate.ts
+var validate = __webpack_require__(860988);
+// EXTERNAL MODULE: ../../packages/types/common.ts
+var common = __webpack_require__(733735);
+// EXTERNAL MODULE: ../../packages/types/errors.ts
+var errors = __webpack_require__(470641);
+// EXTERNAL MODULE: ../../packages/types/user.ts
+var user = __webpack_require__(354345);
+;// ./modules/auth/lib/user.ts
+
+
+
+
+
+
+
+
+
+const updateUser = async (id, data)=>{
+    (0,validate/* validateInputs */.C)([
+        id,
+        common/* ZId */.i4
+    ], [
+        data,
+        user/* ZUserUpdateInput */.rd.partial()
+    ]);
+    try {
+        const updatedUser = await src/* prisma */.z.user.update({
+            where: {
+                id
+            },
+            data: data,
+            select: {
+                id: true,
+                email: true,
+                locale: true,
+                emailVerified: true
+            }
+        });
+        user_cache/* userCache */.g.revalidate({
+            email: updatedUser.email,
+            id: updatedUser.id
+        });
+        return updatedUser;
+    } catch (error) {
+        if (error instanceof client_.Prisma.PrismaClientKnownRequestError && error.code === "P2016") {
+            throw new errors/* ResourceNotFoundError */.CE("User", id);
+        }
+        throw error;
+    }
+};
+const getUserByEmail = (0,react.cache)(async (email)=>(0,cache/* cache */.P)(async ()=>{
+        (0,validate/* validateInputs */.C)([
+            email,
+            user/* ZUserEmail */.sO
+        ]);
+        try {
+            const user = await src/* prisma */.z.user.findFirst({
+                where: {
+                    email
+                },
+                select: {
+                    id: true,
+                    locale: true,
+                    email: true,
+                    emailVerified: true
+                }
+            });
+            return user;
+        } catch (error) {
+            if (error instanceof client_.Prisma.PrismaClientKnownRequestError) {
+                throw new errors/* DatabaseError */.a$(error.message);
+            }
+            throw error;
+        }
+    }, [
+        `getUserByEmail-${email}`
+    ], {
+        tags: [
+            user_cache/* userCache */.g.tag.byEmail(email)
+        ]
+    })());
+const getUser = (0,react.cache)(async (id)=>(0,cache/* cache */.P)(async ()=>{
+        (0,validate/* validateInputs */.C)([
+            id,
+            common/* ZId */.i4
+        ]);
+        try {
+            const user = await src/* prisma */.z.user.findUnique({
+                where: {
+                    id
+                },
+                select: {
+                    id: true
+                }
+            });
+            if (!user) {
+                return null;
+            }
+            return user;
+        } catch (error) {
+            if (error instanceof client_.Prisma.PrismaClientKnownRequestError) {
+                throw new errors/* DatabaseError */.a$(error.message);
+            }
+            throw error;
+        }
+    }, [
+        `getUser-${id}`
+    ], {
+        tags: [
+            user_cache/* userCache */.g.tag.byId(id)
+        ]
+    })());
+const createUser = async (data)=>{
+    (0,validate/* validateInputs */.C)([
+        data,
+        user/* ZUserUpdateInput */.rd
+    ]);
+    try {
+        const user = await src/* prisma */.z.user.create({
+            data: data,
+            select: {
+                name: true,
+                notificationSettings: true,
+                id: true,
+                email: true,
+                locale: true
+            }
+        });
+        user_cache/* userCache */.g.revalidate({
+            email: user.email,
+            id: user.id,
+            count: true
+        });
+        return user;
+    } catch (error) {
+        if (error instanceof client_.Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+            throw new errors/* InvalidInputError */.oC("User with this email already exists");
+        }
+        if (error instanceof client_.Prisma.PrismaClientKnownRequestError) {
+            throw new errors/* DatabaseError */.a$(error.message);
+        }
+        throw error;
+    }
+};
+
+// EXTERNAL MODULE: ../../node_modules/bcryptjs/index.js
+var bcryptjs = __webpack_require__(765737);
+;// ./modules/auth/lib/utils.ts
+
+const hashPassword = async (password)=>{
+    const hashedPassword = await hash(password, 12);
+    return hashedPassword;
+};
+const verifyPassword = async (password, hashedPassword)=>{
+    const isValid = await (0,bcryptjs.compare)(password, hashedPassword);
+    return isValid;
+};
+
+// EXTERNAL MODULE: ../../node_modules/next-auth/providers/azure-ad.js
+var azure_ad = __webpack_require__(790780);
+// EXTERNAL MODULE: ../../node_modules/next-auth/providers/github.js
+var github = __webpack_require__(377888);
+// EXTERNAL MODULE: ../../node_modules/next-auth/providers/google.js
+var google = __webpack_require__(222736);
+// EXTERNAL MODULE: ../../packages/lib/constants.ts
+var constants = __webpack_require__(836919);
+;// ./modules/ee/sso/lib/providers.ts
+
+
+
+
+const getSSOProviders = ()=>[
+        (0,github/* default */.A)({
+            clientId: constants/* GITHUB_ID */.gK || "",
+            clientSecret: constants/* GITHUB_SECRET */.hP || ""
+        }),
+        (0,google/* default */.A)({
+            clientId: constants/* GOOGLE_CLIENT_ID */.E5 || "",
+            clientSecret: constants/* GOOGLE_CLIENT_SECRET */.n$ || "",
+            allowDangerousEmailAccountLinking: true
+        }),
+        (0,azure_ad/* default */.A)({
+            clientId: constants/* AZUREAD_CLIENT_ID */.RP || "",
+            clientSecret: constants/* AZUREAD_CLIENT_SECRET */.mn || "",
+            tenantId: constants/* AZUREAD_TENANT_ID */.kO || ""
+        }),
+        {
+            id: "openid",
+            name: constants/* OIDC_DISPLAY_NAME */.jP || "OpenId",
+            type: "oauth",
+            clientId: constants/* OIDC_CLIENT_ID */.kK || "",
+            clientSecret: constants/* OIDC_CLIENT_SECRET */.r4 || "",
+            wellKnown: `${constants/* OIDC_ISSUER */.Mo}/.well-known/openid-configuration`,
+            authorization: {
+                params: {
+                    scope: "openid email profile"
+                }
+            },
+            idToken: true,
+            client: {
+                id_token_signed_response_alg: constants/* OIDC_SIGNING_ALGORITHM */.CT || "RS256"
+            },
+            checks: [
+                "pkce",
+                "state"
+            ],
+            profile: (profile)=>{
+                return {
+                    id: profile.sub,
+                    name: profile.name,
+                    email: profile.email,
+                    image: profile.picture
+                };
+            }
+        }
+    ];
+
+;// ./modules/auth/lib/brevo.ts
+
+
+
+
+const createBrevoCustomer = async ({ id, email })=>{
+    if (!constants/* BREVO_API_KEY */.oz) {
+        return;
+    }
+    (0,validate/* validateInputs */.C)([
+        id,
+        common/* ZId */.i4
+    ], [
+        email,
+        user/* ZUserEmail */.sO
+    ]);
+    try {
+        const requestBody = {
+            email,
+            ext_id: id,
+            updateEnabled: false
+        };
+        // Add `listIds` only if `BREVO_LIST_ID` is defined
+        const listId = constants/* BREVO_LIST_ID */.aS ? parseInt(constants/* BREVO_LIST_ID */.aS, 10) : null;
+        if (listId && !Number.isNaN(listId)) {
+            requestBody.listIds = [
+                listId
+            ];
+        }
+        const res = await fetch("https://api.brevo.com/v3/contacts", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "api-key": constants/* BREVO_API_KEY */.oz
+            },
+            body: JSON.stringify(requestBody)
+        });
+        if (res.status !== 200) {
+            console.error("Error sending user to Brevo:", await res.text());
+        }
+    } catch (error) {
+        console.error("Error sending user to Brevo:", error);
+    }
+};
+
+// EXTERNAL MODULE: ../../node_modules/zod/lib/index.mjs
+var lib = __webpack_require__(545198);
+;// ../../packages/types/account.ts
+
+const ZAccountInput = lib.z.object({
+    userId: lib.z.string(),
+    type: lib.z.string(),
+    provider: lib.z.string(),
+    providerAccountId: lib.z.string(),
+    access_token: lib.z.string().nullish(),
+    refresh_token: lib.z.string().nullish(),
+    expires_at: lib.z.number().nullish(),
+    scope: lib.z.string().nullish(),
+    token_type: lib.z.string().nullish(),
+    id_token: lib.z.string().nullish()
+});
+const ZAccount = lib.z.object({
+    id: lib.z.string(),
+    createdAt: lib.z.date(),
+    updatedAt: lib.z.date(),
+    userId: lib.z.string(),
+    type: lib.z.string(),
+    provider: lib.z.string(),
+    providerAccountId: lib.z.string(),
+    access_token: lib.z.string().nullable(),
+    refresh_token: lib.z.string().nullable().optional(),
+    expires_at: lib.z.number().nullable(),
+    scope: lib.z.string().nullable(),
+    token_type: lib.z.string().nullable(),
+    id_token: lib.z.string().nullable()
+});
+
+;// ../../packages/lib/account/utils.ts
+
+const filterAccountInputData = (account)=>{
+    const supportedProps = Object.keys(ZAccountInput.shape);
+    return supportedProps.reduce((acc, prop)=>{
+        if (account.hasOwnProperty(prop)) {
+            acc[prop] = account[prop];
+        }
+        return acc;
+    }, {});
+};
+
+;// ../../packages/lib/account/service.ts
+
+
+
+
+
+
+const createAccount = async (accountData)=>{
+    (0,validate/* validateInputs */.C)([
+        accountData,
+        ZAccountInput
+    ]);
+    try {
+        const supportedAccountData = filterAccountInputData(accountData);
+        const account = await src/* prisma */.z.account.create({
+            data: supportedAccountData
+        });
+        return account;
+    } catch (error) {
+        if (error instanceof client_.Prisma.PrismaClientKnownRequestError) {
+            throw new errors/* DatabaseError */.a$(error.message);
+        }
+        throw error;
+    }
+};
+
+// EXTERNAL MODULE: ../../packages/lib/membership/service.ts
+var service = __webpack_require__(377968);
+// EXTERNAL MODULE: ../../packages/lib/organization/service.ts
+var organization_service = __webpack_require__(353687);
+// EXTERNAL MODULE: ../../packages/lib/utils/locale.ts
+var locale = __webpack_require__(615572);
+;// ./modules/ee/sso/lib/sso-handlers.ts
+
+
+
+
+
+
+
+
+
+const handleSSOCallback = async ({ user, account })=>{
+    if (!user.email || account.type !== "oauth") {
+        return false;
+    }
+    if (account.provider) {
+        const provider = account.provider.toLowerCase().replace("-", "");
+        // check if accounts for this provider / account Id already exists
+        const existingUserWithAccount = await src/* prisma */.z.user.findFirst({
+            include: {
+                accounts: {
+                    where: {
+                        provider: account.provider
+                    }
+                }
+            },
+            where: {
+                identityProvider: provider,
+                identityProviderAccountId: account.providerAccountId
+            }
+        });
+        if (existingUserWithAccount) {
+            // User with this provider found
+            // check if email still the same
+            if (existingUserWithAccount.email === user.email) {
+                return true;
+            }
+            // user seemed to change his email within the provider
+            // check if user with this email already exist
+            // if not found just update user with new email address
+            // if found throw an error (TODO find better solution)
+            const otherUserWithEmail = await getUserByEmail(user.email);
+            if (!otherUserWithEmail) {
+                await updateUser(existingUserWithAccount.id, {
+                    email: user.email
+                });
+                return true;
+            }
+            throw new Error("Looks like you updated your email somewhere else. A user with this new email exists already.");
+        }
+        // There is no existing account for this identity provider / account id
+        // check if user account with this email already exists
+        // if user already exists throw error and request password login
+        const existingUserWithEmail = await getUserByEmail(user.email);
+        if (existingUserWithEmail) {
+            // Sign in the user with the existing account
+            return true;
+        }
+        const userProfile = await createUser({
+            name: user.name || user.email.split("@")[0].replace(/[^'\p{L}\p{M}\s\d-]+/gu, " ").trim(),
+            email: user.email,
+            emailVerified: new Date(Date.now()),
+            identityProvider: provider,
+            identityProviderAccountId: account.providerAccountId,
+            locale: await (0,locale/* findMatchingLocale */.$)()
+        });
+        // send new user to brevo
+        createBrevoCustomer({
+            id: user.id,
+            email: user.email
+        });
+        // Default organization assignment if env variable is set
+        if (constants/* DEFAULT_ORGANIZATION_ID */.ac && constants/* DEFAULT_ORGANIZATION_ID */.ac.length > 0) {
+            // check if organization exists
+            let organization = await (0,organization_service/* getOrganization */.SA)(constants/* DEFAULT_ORGANIZATION_ID */.ac);
+            let isNewOrganization = false;
+            if (!organization) {
+                // create organization with id from env
+                organization = await (0,organization_service/* createOrganization */.EC)({
+                    id: constants/* DEFAULT_ORGANIZATION_ID */.ac,
+                    name: userProfile.name + "'s Organization"
+                });
+                isNewOrganization = true;
+            }
+            const role = isNewOrganization ? "owner" : constants/* DEFAULT_ORGANIZATION_ROLE */.tE || "manager";
+            await (0,service/* createMembership */.$)(organization.id, userProfile.id, {
+                role: role,
+                accepted: true
+            });
+            await createAccount({
+                ...account,
+                userId: userProfile.id
+            });
+            const updatedNotificationSettings = {
+                ...userProfile.notificationSettings,
+                alert: {
+                    ...userProfile.notificationSettings?.alert
+                },
+                unsubscribedOrganizationIds: Array.from(new Set([
+                    ...userProfile.notificationSettings?.unsubscribedOrganizationIds || [],
+                    organization.id
+                ])),
+                weeklySummary: {
+                    ...userProfile.notificationSettings?.weeklySummary
+                }
+            };
+            await updateUser(userProfile.id, {
+                notificationSettings: updatedNotificationSettings
+            });
+            return true;
+        }
+        // Without default organization assignment
+        return true;
+    }
+    return true;
+};
+
+// EXTERNAL MODULE: ../../node_modules/next-auth/providers/credentials.js
+var credentials = __webpack_require__(978357);
+// EXTERNAL MODULE: ../../packages/lib/crypto.ts
+var lib_crypto = __webpack_require__(549673);
+// EXTERNAL MODULE: ../../packages/lib/jwt.ts
+var jwt = __webpack_require__(360379);
+;// ./modules/auth/lib/authOptions.ts
+
+
+
+
+
+
+
+
+
+
+const authOptions = {
+    providers: [
+        (0,credentials/* default */.A)({
+            id: "credentials",
+            // The name to display on the sign in form (e.g. "Sign in with...")
+            name: "Credentials",
+            // The credentials is used to generate a suitable form on the sign in page.
+            // You can specify whatever fields you are expecting to be submitted.
+            // e.g. domain, username, password, 2FA token, etc.
+            // You can pass any HTML attribute to the <input> tag through the object.
+            credentials: {
+                email: {
+                    label: "Email Address",
+                    type: "email",
+                    placeholder: "Your email address"
+                },
+                password: {
+                    label: "Password",
+                    type: "password",
+                    placeholder: "Your password"
+                },
+                totpCode: {
+                    label: "Two-factor Code",
+                    type: "input",
+                    placeholder: "Code from authenticator app"
+                },
+                backupCode: {
+                    label: "Backup Code",
+                    type: "input",
+                    placeholder: "Two-factor backup code"
+                }
+            },
+            async authorize (credentials, _req) {
+                if (!credentials) {
+                    throw new Error("Invalid credentials");
+                }
+                let user;
+                try {
+                    user = await src/* prisma */.z.user.findUnique({
+                        where: {
+                            email: credentials?.email
+                        }
+                    });
+                } catch (e) {
+                    console.error(e);
+                    throw Error("Internal server error. Please try again later");
+                }
+                if (!user) {
+                    throw new Error("Invalid credentials");
+                }
+                if (!user.password) {
+                    throw new Error("User has no password stored");
+                }
+                const isValid = await verifyPassword(credentials.password, user.password);
+                if (!isValid) {
+                    throw new Error("Invalid credentials");
+                }
+                if (user.twoFactorEnabled && credentials.backupCode) {
+                    if (!constants/* ENCRYPTION_KEY */.o7) {
+                        console.error("Missing encryption key; cannot proceed with backup code login.");
+                        throw new Error("Internal Server Error");
+                    }
+                    if (!user.backupCodes) throw new Error("No backup codes found");
+                    const backupCodes = JSON.parse((0,lib_crypto/* symmetricDecrypt */.zp)(user.backupCodes, constants/* ENCRYPTION_KEY */.o7));
+                    // check if user-supplied code matches one
+                    const index = backupCodes.indexOf(credentials.backupCode.replaceAll("-", ""));
+                    if (index === -1) throw new Error("Invalid backup code");
+                    // delete verified backup code and re-encrypt remaining
+                    backupCodes[index] = null;
+                    await src/* prisma */.z.user.update({
+                        where: {
+                            id: user.id
+                        },
+                        data: {
+                            backupCodes: (0,lib_crypto/* symmetricEncrypt */.vX)(JSON.stringify(backupCodes), constants/* ENCRYPTION_KEY */.o7)
+                        }
+                    });
+                } else if (user.twoFactorEnabled) {
+                    if (!credentials.totpCode) {
+                        throw new Error("second factor required");
+                    }
+                    if (!user.twoFactorSecret) {
+                        throw new Error("Internal Server Error");
+                    }
+                    if (!constants/* ENCRYPTION_KEY */.o7) {
+                        throw new Error("Internal Server Error");
+                    }
+                    const secret = (0,lib_crypto/* symmetricDecrypt */.zp)(user.twoFactorSecret, constants/* ENCRYPTION_KEY */.o7);
+                    if (secret.length !== 32) {
+                        throw new Error("Invalid two factor secret");
+                    }
+                    const isValidToken = (await __webpack_require__.e(/* import() */ 4081).then(__webpack_require__.bind(__webpack_require__, 134081))).totpAuthenticatorCheck(credentials.totpCode, secret);
+                    if (!isValidToken) {
+                        throw new Error("Invalid two factor code");
+                    }
+                }
+                return {
+                    id: user.id,
+                    email: user.email,
+                    emailVerified: user.emailVerified,
+                    imageUrl: user.imageUrl
+                };
+            }
+        }),
+        (0,credentials/* default */.A)({
+            id: "token",
+            // The name to display on the sign in form (e.g. "Sign in with...")
+            name: "Token",
+            // The credentials is used to generate a suitable form on the sign in page.
+            // You can specify whatever fields you are expecting to be submitted.
+            // e.g. domain, username, password, 2FA token, etc.
+            // You can pass any HTML attribute to the <input> tag through the object.
+            credentials: {
+                token: {
+                    label: "Verification Token",
+                    type: "string"
+                }
+            },
+            async authorize (credentials, _req) {
+                let user;
+                try {
+                    if (!credentials?.token) {
+                        throw new Error("Token not found");
+                    }
+                    const { id } = await (0,jwt/* verifyToken */.nr)(credentials?.token);
+                    user = await src/* prisma */.z.user.findUnique({
+                        where: {
+                            id: id
+                        }
+                    });
+                } catch (e) {
+                    throw new Error("Either a user does not match the provided token or the token is invalid");
+                }
+                if (!user) {
+                    throw new Error("Either a user does not match the provided token or the token is invalid");
+                }
+                if (user.emailVerified) {
+                    throw new Error("Email already verified");
+                }
+                user = await updateUser(user.id, {
+                    emailVerified: new Date()
+                });
+                // send new user to brevo after email verification
+                createBrevoCustomer({
+                    id: user.id,
+                    email: user.email
+                });
+                return user;
+            }
+        }),
+        // Conditionally add enterprise SSO providers
+        ...constants/* ENTERPRISE_LICENSE_KEY */.an ? getSSOProviders() : []
+    ],
+    callbacks: {
+        async jwt ({ token }) {
+            const existingUser = await getUserByEmail(token?.email);
+            if (!existingUser) {
+                return token;
+            }
+            return {
+                ...token,
+                profile: {
+                    id: existingUser.id
+                }
+            };
+        },
+        async session ({ session, token }) {
+            // @ts-expect-error
+            session.user.id = token?.id;
+            // @ts-expect-error
+            session.user = token.profile;
+            return session;
+        },
+        async signIn ({ user, account }) {
+            if (account?.provider === "credentials" || account?.provider === "token") {
+                // check if user's email is verified or not
+                if (!user.emailVerified && !constants/* EMAIL_VERIFICATION_DISABLED */.Q$) {
+                    throw new Error("Email Verification is Pending");
+                }
+                return true;
+            }
+            if (constants/* ENTERPRISE_LICENSE_KEY */.an) {
+                return handleSSOCallback({
+                    user,
+                    account
+                });
+            }
+            return true;
+        }
+    },
+    pages: {
+        signIn: "/auth/login",
+        signOut: "/auth/logout",
+        error: "/auth/login"
+    }
+};
+
+
+/***/ }),
+
+/***/ 145796:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony import */ var _client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(322176);
+/* harmony import */ var _client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (checked) */ if(__webpack_require__.o(_client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__, "notFound")) __webpack_require__.d(__webpack_exports__, { notFound: function() { return _client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__.notFound; } });
+/* harmony reexport (checked) */ if(__webpack_require__.o(_client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__, "redirect")) __webpack_require__.d(__webpack_exports__, { redirect: function() { return _client_components_navigation_react_server__WEBPACK_IMPORTED_MODULE_0__.redirect; } });
+
+
+//# sourceMappingURL=navigation.react-server.js.map
+
+/***/ }),
+
+/***/ 484968:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "forbidden", ({
+    enumerable: true,
+    get: function() {
+        return forbidden;
+    }
+}));
+const _httpaccessfallback = __webpack_require__(528312);
+// TODO: Add `forbidden` docs
+/**
+ * @experimental
+ * This function allows you to render the [forbidden.js file](https://nextjs.org/docs/app/api-reference/file-conventions/forbidden)
+ * within a route segment as well as inject a tag.
+ *
+ * `forbidden()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ * Read more: [Next.js Docs: `forbidden`](https://nextjs.org/docs/app/api-reference/functions/forbidden)
+ */ const DIGEST = "" + _httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE + ";403";
+function forbidden() {
+    if (true) {
+        throw new Error("`forbidden()` is experimental and only allowed to be enabled when `experimental.authInterrupts` is enabled.");
+    }
+    // eslint-disable-next-line no-throw-literal
+    const error = new Error(DIGEST);
+    error.digest = DIGEST;
+    throw error;
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=forbidden.js.map
+
+
+/***/ }),
+
+/***/ 528312:
+/***/ ((module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    HTTPAccessErrorStatus: function() {
+        return HTTPAccessErrorStatus;
+    },
+    HTTP_ERROR_FALLBACK_ERROR_CODE: function() {
+        return HTTP_ERROR_FALLBACK_ERROR_CODE;
+    },
+    getAccessFallbackErrorTypeByStatus: function() {
+        return getAccessFallbackErrorTypeByStatus;
+    },
+    getAccessFallbackHTTPStatus: function() {
+        return getAccessFallbackHTTPStatus;
+    },
+    isHTTPAccessFallbackError: function() {
+        return isHTTPAccessFallbackError;
+    }
+});
+const HTTPAccessErrorStatus = {
+    NOT_FOUND: 404,
+    FORBIDDEN: 403,
+    UNAUTHORIZED: 401
+};
+const ALLOWED_CODES = new Set(Object.values(HTTPAccessErrorStatus));
+const HTTP_ERROR_FALLBACK_ERROR_CODE = 'NEXT_HTTP_ERROR_FALLBACK';
+function isHTTPAccessFallbackError(error) {
+    if (typeof error !== 'object' || error === null || !('digest' in error) || typeof error.digest !== 'string') {
+        return false;
+    }
+    const [prefix, httpStatus] = error.digest.split(';');
+    return prefix === HTTP_ERROR_FALLBACK_ERROR_CODE && ALLOWED_CODES.has(Number(httpStatus));
+}
+function getAccessFallbackHTTPStatus(error) {
+    const httpStatus = error.digest.split(';')[1];
+    return Number(httpStatus);
+}
+function getAccessFallbackErrorTypeByStatus(status) {
+    switch(status){
+        case 401:
+            return 'unauthorized';
+        case 403:
+            return 'forbidden';
+        case 404:
+            return 'not-found';
+        default:
+            return;
+    }
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=http-access-fallback.js.map
+
+
+/***/ }),
+
+/***/ 635954:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "isNextRouterError", ({
+    enumerable: true,
+    get: function() {
+        return isNextRouterError;
+    }
+}));
+const _httpaccessfallback = __webpack_require__(528312);
+const _redirecterror = __webpack_require__(374890);
+function isNextRouterError(error) {
+    return (0, _redirecterror.isRedirectError)(error) || (0, _httpaccessfallback.isHTTPAccessFallbackError)(error);
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=is-next-router-error.js.map
+
+
+/***/ }),
+
+/***/ 322176:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+/** @internal */ 
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    ReadonlyURLSearchParams: function() {
+        return ReadonlyURLSearchParams;
+    },
+    RedirectType: function() {
+        return _redirecterror.RedirectType;
+    },
+    forbidden: function() {
+        return _forbidden.forbidden;
+    },
+    notFound: function() {
+        return _notfound.notFound;
+    },
+    permanentRedirect: function() {
+        return _redirect.permanentRedirect;
+    },
+    redirect: function() {
+        return _redirect.redirect;
+    },
+    unauthorized: function() {
+        return _unauthorized.unauthorized;
+    },
+    unstable_rethrow: function() {
+        return _unstablerethrow.unstable_rethrow;
+    }
+});
+const _redirect = __webpack_require__(231321);
+const _redirecterror = __webpack_require__(374890);
+const _notfound = __webpack_require__(289925);
+const _forbidden = __webpack_require__(484968);
+const _unauthorized = __webpack_require__(216539);
+const _unstablerethrow = __webpack_require__(873035);
+class ReadonlyURLSearchParamsError extends Error {
+    constructor(){
+        super('Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams');
+    }
+}
+class ReadonlyURLSearchParams extends URLSearchParams {
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ append() {
+        throw new ReadonlyURLSearchParamsError();
+    }
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ delete() {
+        throw new ReadonlyURLSearchParamsError();
+    }
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ set() {
+        throw new ReadonlyURLSearchParamsError();
+    }
+    /** @deprecated Method unavailable on `ReadonlyURLSearchParams`. Read more: https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams */ sort() {
+        throw new ReadonlyURLSearchParamsError();
+    }
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=navigation.react-server.js.map
+
+
+/***/ }),
+
+/***/ 289925:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "notFound", ({
+    enumerable: true,
+    get: function() {
+        return notFound;
+    }
+}));
+const _httpaccessfallback = __webpack_require__(528312);
+/**
+ * This function allows you to render the [not-found.js file](https://nextjs.org/docs/app/api-reference/file-conventions/not-found)
+ * within a route segment as well as inject a tag.
+ *
+ * `notFound()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ * - In a Server Component, this will insert a `<meta name="robots" content="noindex" />` meta tag and set the status code to 404.
+ * - In a Route Handler or Server Action, it will serve a 404 to the caller.
+ *
+ * Read more: [Next.js Docs: `notFound`](https://nextjs.org/docs/app/api-reference/functions/not-found)
+ */ const DIGEST = "" + _httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE + ";404";
+function notFound() {
+    // eslint-disable-next-line no-throw-literal
+    const error = new Error(DIGEST);
+    error.digest = DIGEST;
+    throw error;
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=not-found.js.map
+
+
+/***/ }),
+
+/***/ 374890:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    REDIRECT_ERROR_CODE: function() {
+        return REDIRECT_ERROR_CODE;
+    },
+    RedirectType: function() {
+        return RedirectType;
+    },
+    isRedirectError: function() {
+        return isRedirectError;
+    }
+});
+const _redirectstatuscode = __webpack_require__(319996);
+const REDIRECT_ERROR_CODE = 'NEXT_REDIRECT';
+var RedirectType = /*#__PURE__*/ function(RedirectType) {
+    RedirectType["push"] = "push";
+    RedirectType["replace"] = "replace";
+    return RedirectType;
+}({});
+function isRedirectError(error) {
+    if (typeof error !== 'object' || error === null || !('digest' in error) || typeof error.digest !== 'string') {
+        return false;
+    }
+    const digest = error.digest.split(';');
+    const [errorCode, type] = digest;
+    const destination = digest.slice(2, -2).join(';');
+    const status = digest.at(-2);
+    const statusCode = Number(status);
+    return errorCode === REDIRECT_ERROR_CODE && (type === 'replace' || type === 'push') && typeof destination === 'string' && !isNaN(statusCode) && statusCode in _redirectstatuscode.RedirectStatusCode;
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=redirect-error.js.map
+
+
+/***/ }),
+
+/***/ 319996:
+/***/ ((module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "RedirectStatusCode", ({
+    enumerable: true,
+    get: function() {
+        return RedirectStatusCode;
+    }
+}));
+var RedirectStatusCode = /*#__PURE__*/ function(RedirectStatusCode) {
+    RedirectStatusCode[RedirectStatusCode["SeeOther"] = 303] = "SeeOther";
+    RedirectStatusCode[RedirectStatusCode["TemporaryRedirect"] = 307] = "TemporaryRedirect";
+    RedirectStatusCode[RedirectStatusCode["PermanentRedirect"] = 308] = "PermanentRedirect";
+    return RedirectStatusCode;
+}({});
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=redirect-status-code.js.map
+
+
+/***/ }),
+
+/***/ 231321:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    getRedirectError: function() {
+        return getRedirectError;
+    },
+    getRedirectStatusCodeFromError: function() {
+        return getRedirectStatusCodeFromError;
+    },
+    getRedirectTypeFromError: function() {
+        return getRedirectTypeFromError;
+    },
+    getURLFromRedirectError: function() {
+        return getURLFromRedirectError;
+    },
+    permanentRedirect: function() {
+        return permanentRedirect;
+    },
+    redirect: function() {
+        return redirect;
+    }
+});
+const _actionasyncstorageexternal = __webpack_require__(419121);
+const _redirectstatuscode = __webpack_require__(319996);
+const _redirecterror = __webpack_require__(374890);
+function getRedirectError(url, type, statusCode) {
+    if (statusCode === void 0) statusCode = _redirectstatuscode.RedirectStatusCode.TemporaryRedirect;
+    const error = new Error(_redirecterror.REDIRECT_ERROR_CODE);
+    error.digest = _redirecterror.REDIRECT_ERROR_CODE + ";" + type + ";" + url + ";" + statusCode + ";";
+    return error;
+}
+function redirect(/** The URL to redirect to */ url, type) {
+    const actionStore = _actionasyncstorageexternal.actionAsyncStorage.getStore();
+    const redirectType = type || ((actionStore == null ? void 0 : actionStore.isAction) ? _redirecterror.RedirectType.push : _redirecterror.RedirectType.replace);
+    throw getRedirectError(url, redirectType, _redirectstatuscode.RedirectStatusCode.TemporaryRedirect);
+}
+function permanentRedirect(/** The URL to redirect to */ url, type) {
+    if (type === void 0) type = _redirecterror.RedirectType.replace;
+    throw getRedirectError(url, type, _redirectstatuscode.RedirectStatusCode.PermanentRedirect);
+}
+function getURLFromRedirectError(error) {
+    if (!(0, _redirecterror.isRedirectError)(error)) return null;
+    // Slices off the beginning of the digest that contains the code and the
+    // separating ';'.
+    return error.digest.split(';').slice(2, -2).join(';');
+}
+function getRedirectTypeFromError(error) {
+    if (!(0, _redirecterror.isRedirectError)(error)) {
+        throw new Error('Not a redirect error');
+    }
+    return error.digest.split(';', 2)[1];
+}
+function getRedirectStatusCodeFromError(error) {
+    if (!(0, _redirecterror.isRedirectError)(error)) {
+        throw new Error('Not a redirect error');
+    }
+    return Number(error.digest.split(';').at(-2));
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=redirect.js.map
+
+
+/***/ }),
+
+/***/ 216539:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "unauthorized", ({
+    enumerable: true,
+    get: function() {
+        return unauthorized;
+    }
+}));
+const _httpaccessfallback = __webpack_require__(528312);
+// TODO: Add `unauthorized` docs
+/**
+ * @experimental
+ * This function allows you to render the [unauthorized.js file](https://nextjs.org/docs/app/api-reference/file-conventions/unauthorized)
+ * within a route segment as well as inject a tag.
+ *
+ * `unauthorized()` can be used in
+ * [Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components),
+ * [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers), and
+ * [Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations).
+ *
+ *
+ * Read more: [Next.js Docs: `unauthorized`](https://nextjs.org/docs/app/api-reference/functions/unauthorized)
+ */ const DIGEST = "" + _httpaccessfallback.HTTP_ERROR_FALLBACK_ERROR_CODE + ";401";
+function unauthorized() {
+    if (true) {
+        throw new Error("`unauthorized()` is experimental and only allowed to be used when `experimental.authInterrupts` is enabled.");
+    }
+    // eslint-disable-next-line no-throw-literal
+    const error = new Error(DIGEST);
+    error.digest = DIGEST;
+    throw error;
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=unauthorized.js.map
+
+
+/***/ }),
+
+/***/ 873035:
+/***/ ((module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "unstable_rethrow", ({
+    enumerable: true,
+    get: function() {
+        return unstable_rethrow;
+    }
+}));
+const _isdynamicusageerror = __webpack_require__(392330);
+const _ispostpone = __webpack_require__(788805);
+const _bailouttocsr = __webpack_require__(620510);
+const _isnextroutererror = __webpack_require__(635954);
+function unstable_rethrow(error) {
+    if ((0, _isnextroutererror.isNextRouterError)(error) || (0, _bailouttocsr.isBailoutToCSRError)(error) || (0, _isdynamicusageerror.isDynamicUsageError)(error) || (0, _ispostpone.isPostpone)(error)) {
+        throw error;
+    }
+    if (error instanceof Error && 'cause' in error) {
+        unstable_rethrow(error.cause);
+    }
+}
+if ((typeof exports.default === 'function' || typeof exports.default === 'object' && exports.default !== null) && typeof exports.default.__esModule === 'undefined') {
+    Object.defineProperty(exports.default, '__esModule', {
+        value: true
+    });
+    Object.assign(exports.default, exports);
+    module.exports = exports.default;
+} //# sourceMappingURL=unstable-rethrow.js.map
+
+
+/***/ }),
+
+/***/ 392330:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "isDynamicUsageError", ({
+    enumerable: true,
+    get: function() {
+        return isDynamicUsageError;
+    }
+}));
+const _hooksservercontext = __webpack_require__(704791);
+const _bailouttocsr = __webpack_require__(620510);
+const _isnextroutererror = __webpack_require__(635954);
+const _dynamicrendering = __webpack_require__(169203);
+const isDynamicUsageError = (err)=>(0, _hooksservercontext.isDynamicServerError)(err) || (0, _bailouttocsr.isBailoutToCSRError)(err) || (0, _isnextroutererror.isNextRouterError)(err) || (0, _dynamicrendering.isDynamicPostpone)(err);
+
+//# sourceMappingURL=is-dynamic-usage-error.js.map
+
+/***/ }),
+
+/***/ 788805:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+Object.defineProperty(exports, "isPostpone", ({
+    enumerable: true,
+    get: function() {
+        return isPostpone;
+    }
+}));
+const REACT_POSTPONE_TYPE = Symbol.for('react.postpone');
+function isPostpone(error) {
+    return typeof error === 'object' && error !== null && error.$$typeof === REACT_POSTPONE_TYPE;
+}
+
+//# sourceMappingURL=is-postpone.js.map
+
+/***/ }),
+
+/***/ 831271:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+if (false) {} else {
+    if (false) {} else {
+        if (false) {} else if (false) {} else {
+            module.exports = __webpack_require__(744870);
+        }
+    }
+}
+
+//# sourceMappingURL=module.compiled.js.map
+
+/***/ }),
+
+/***/ 620510:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+// This has to be a shared module which is shared between client component error boundary and dynamic component
+
+Object.defineProperty(exports, "__esModule", ({
+    value: true
+}));
+0 && (0);
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: all[name]
+    });
+}
+_export(exports, {
+    BailoutToCSRError: function() {
+        return BailoutToCSRError;
+    },
+    isBailoutToCSRError: function() {
+        return isBailoutToCSRError;
+    }
+});
+const BAILOUT_TO_CSR = 'BAILOUT_TO_CLIENT_SIDE_RENDERING';
+class BailoutToCSRError extends Error {
+    constructor(reason){
+        super("Bail out to client-side rendering: " + reason), this.reason = reason, this.digest = BAILOUT_TO_CSR;
+    }
+}
+function isBailoutToCSRError(err) {
+    if (typeof err !== 'object' || err === null || !('digest' in err)) {
+        return false;
+    }
+    return err.digest === BAILOUT_TO_CSR;
+} //# sourceMappingURL=bailout-to-csr.js.map
+
+
+/***/ }),
+
+/***/ 549673:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   C7: () => (/* binding */ generateLocalSignedUrl),
+/* harmony export */   Zd: () => (/* binding */ getHash),
+/* harmony export */   gg: () => (/* binding */ decryptAES128),
+/* harmony export */   jQ: () => (/* binding */ validateLocalSignedUrl),
+/* harmony export */   vX: () => (/* binding */ symmetricEncrypt),
+/* harmony export */   zp: () => (/* binding */ symmetricDecrypt)
+/* harmony export */ });
+/* unused harmony export encryptAES128 */
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(455511);
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(836919);
+
+
+
+const ALGORITHM = "aes256";
+const INPUT_ENCODING = "utf8";
+const OUTPUT_ENCODING = "hex";
+const BUFFER_ENCODING = _constants__WEBPACK_IMPORTED_MODULE_1__/* .ENCRYPTION_KEY */ .o7.length === 32 ? "latin1" : "hex";
+const IV_LENGTH = 16; // AES blocksize
+/**
+ *
+ * @param text Value to be encrypted
+ * @param key Key used to encrypt value must be 32 bytes for AES256 encryption algorithm
+ *
+ * @returns Encrypted value using key
+ */ const symmetricEncrypt = (text, key)=>{
+    const _key = Buffer.from(key, BUFFER_ENCODING);
+    const iv = crypto__WEBPACK_IMPORTED_MODULE_0___default().randomBytes(IV_LENGTH);
+    // @ts-ignore -- the package needs to be built
+    const cipher = crypto__WEBPACK_IMPORTED_MODULE_0___default().createCipheriv(ALGORITHM, _key, iv);
+    let ciphered = cipher.update(text, INPUT_ENCODING, OUTPUT_ENCODING);
+    ciphered += cipher.final(OUTPUT_ENCODING);
+    const ciphertext = iv.toString(OUTPUT_ENCODING) + ":" + ciphered;
+    return ciphertext;
+};
+/**
+ *
+ * @param text Value to decrypt
+ * @param key Key used to decrypt value must be 32 bytes for AES256 encryption algorithm
+ */ const symmetricDecrypt = (text, key)=>{
+    const _key = Buffer.from(key, BUFFER_ENCODING);
+    const components = text.split(":");
+    const iv_from_ciphertext = Buffer.from(components.shift() || "", OUTPUT_ENCODING);
+    // @ts-ignore -- the package needs to be built
+    const decipher = crypto__WEBPACK_IMPORTED_MODULE_0___default().createDecipheriv(ALGORITHM, _key, iv_from_ciphertext);
+    let deciphered = decipher.update(components.join(":"), OUTPUT_ENCODING, INPUT_ENCODING);
+    deciphered += decipher.final(INPUT_ENCODING);
+    return deciphered;
+};
+const getHash = (key)=>(0,crypto__WEBPACK_IMPORTED_MODULE_0__.createHash)("sha256").update(key).digest("hex");
+// create an aes128 encryption function
+const encryptAES128 = (encryptionKey, data)=>{
+    // @ts-ignore -- the package needs to be built
+    const cipher = createCipheriv("aes-128-ecb", Buffer.from(encryptionKey, "base64"), "");
+    let encrypted = cipher.update(data, "utf-8", "hex");
+    encrypted += cipher.final("hex");
+    return encrypted;
+};
+// create an aes128 decryption function
+const decryptAES128 = (encryptionKey, data)=>{
+    // @ts-ignore -- the package needs to be built
+    const cipher = (0,crypto__WEBPACK_IMPORTED_MODULE_0__.createDecipheriv)("aes-128-ecb", Buffer.from(encryptionKey, "base64"), "");
+    let decrypted = cipher.update(data, "hex", "utf-8");
+    decrypted += cipher.final("utf-8");
+    return decrypted;
+};
+const generateLocalSignedUrl = (fileName, environmentId, fileType)=>{
+    const uuid = (0,crypto__WEBPACK_IMPORTED_MODULE_0__.randomBytes)(16).toString("hex");
+    const timestamp = Date.now();
+    const data = `${uuid}:${fileName}:${environmentId}:${fileType}:${timestamp}`;
+    const signature = (0,crypto__WEBPACK_IMPORTED_MODULE_0__.createHmac)("sha256", _constants__WEBPACK_IMPORTED_MODULE_1__/* .ENCRYPTION_KEY */ .o7).update(data).digest("hex");
+    return {
+        signature,
+        uuid,
+        timestamp
+    };
+};
+const validateLocalSignedUrl = (uuid, fileName, environmentId, fileType, timestamp, signature, secret)=>{
+    const data = `${uuid}:${fileName}:${environmentId}:${fileType}:${timestamp}`;
+    const expectedSignature = (0,crypto__WEBPACK_IMPORTED_MODULE_0__.createHmac)("sha256", secret).update(data).digest("hex");
+    if (expectedSignature !== signature) {
+        return false;
+    }
+    // valid for 5 minutes
+    if (Date.now() - timestamp > 1000 * 60 * 5) {
+        return false;
+    }
+    return true;
+};
+
+
+/***/ }),
+
+/***/ 266640:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   n: () => (/* binding */ hasUserEnvironmentAccess)
+/* harmony export */ });
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(896330);
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _formbricks_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(527610);
+/* harmony import */ var _formbricks_types_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(733735);
+/* harmony import */ var _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(470641);
+/* harmony import */ var _cache__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(794356);
+/* harmony import */ var _organization_cache__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(530190);
+/* harmony import */ var _utils_validate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(860988);
+
+
+
+
+
+
+
+const hasUserEnvironmentAccess = async (userId, environmentId)=>(0,_cache__WEBPACK_IMPORTED_MODULE_2__/* .cache */ .P)(async ()=>{
+        (0,_utils_validate__WEBPACK_IMPORTED_MODULE_3__/* .validateInputs */ .C)([
+            userId,
+            _formbricks_types_common__WEBPACK_IMPORTED_MODULE_4__/* .ZId */ .i4
+        ], [
+            environmentId,
+            _formbricks_types_common__WEBPACK_IMPORTED_MODULE_4__/* .ZId */ .i4
+        ]);
+        try {
+            const orgMembership = await _formbricks_database__WEBPACK_IMPORTED_MODULE_1__/* .prisma */ .z.membership.findFirst({
+                where: {
+                    userId,
+                    organization: {
+                        projects: {
+                            some: {
+                                environments: {
+                                    some: {
+                                        id: environmentId
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            if (!orgMembership) return false;
+            if (orgMembership.role === "owner" || orgMembership.role === "manager" || orgMembership.role === "billing") return true;
+            const teamMembership = await _formbricks_database__WEBPACK_IMPORTED_MODULE_1__/* .prisma */ .z.teamUser.findFirst({
+                where: {
+                    userId,
+                    team: {
+                        projectTeams: {
+                            some: {
+                                project: {
+                                    environments: {
+                                        some: {
+                                            id: environmentId
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            if (teamMembership) return true;
+            return false;
+        } catch (error) {
+            if (error instanceof _prisma_client__WEBPACK_IMPORTED_MODULE_0__.Prisma.PrismaClientKnownRequestError) {
+                throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_5__/* .DatabaseError */ .a$(error.message);
+            }
+            throw error;
+        }
+    }, [
+        `hasUserEnvironmentAccess-${userId}-${environmentId}`
+    ], {
+        tags: [
+            _organization_cache__WEBPACK_IMPORTED_MODULE_6__/* .organizationCache */ .S.tag.byEnvironmentId(environmentId),
+            _organization_cache__WEBPACK_IMPORTED_MODULE_6__/* .organizationCache */ .S.tag.byUserId(userId)
+        ]
+    })();
+
+
+/***/ }),
+
+/***/ 360379:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CN: () => (/* binding */ verifyTokenForLinkSurvey),
+/* harmony export */   Oj: () => (/* binding */ verifyInviteToken),
+/* harmony export */   ao: () => (/* binding */ getEmailFromEmailToken),
+/* harmony export */   nr: () => (/* binding */ verifyToken)
+/* harmony export */ });
+/* unused harmony exports createToken, createTokenForLinkSurvey, createEmailToken, createInviteToken */
+/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(900365);
+/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _formbricks_database__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(527610);
+/* harmony import */ var _crypto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(549673);
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(162437);
+
+
+
+
+const createToken = (userId, userEmail, options = {})=>{
+    const encryptedUserId = symmetricEncrypt(userId, env.ENCRYPTION_KEY);
+    return jwt.sign({
+        id: encryptedUserId
+    }, env.NEXTAUTH_SECRET + userEmail, options);
+};
+const createTokenForLinkSurvey = (surveyId, userEmail)=>{
+    const encryptedEmail = symmetricEncrypt(userEmail, env.ENCRYPTION_KEY);
+    return jwt.sign({
+        email: encryptedEmail
+    }, env.NEXTAUTH_SECRET + surveyId);
+};
+const createEmailToken = (email)=>{
+    const encryptedEmail = symmetricEncrypt(email, env.ENCRYPTION_KEY);
+    return jwt.sign({
+        email: encryptedEmail
+    }, env.NEXTAUTH_SECRET);
+};
+const getEmailFromEmailToken = (token)=>{
+    const payload = jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().verify(token, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.NEXTAUTH_SECRET);
+    try {
+        // Try to decrypt first (for newer tokens)
+        const decryptedEmail = (0,_crypto__WEBPACK_IMPORTED_MODULE_3__/* .symmetricDecrypt */ .zp)(payload.email, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.ENCRYPTION_KEY);
+        return decryptedEmail;
+    } catch  {
+        // If decryption fails, return the original email (for older tokens)
+        return payload.email;
+    }
+};
+const createInviteToken = (inviteId, email, options = {})=>{
+    const encryptedInviteId = symmetricEncrypt(inviteId, env.ENCRYPTION_KEY);
+    const encryptedEmail = symmetricEncrypt(email, env.ENCRYPTION_KEY);
+    return jwt.sign({
+        inviteId: encryptedInviteId,
+        email: encryptedEmail
+    }, env.NEXTAUTH_SECRET, options);
+};
+const verifyTokenForLinkSurvey = (token, surveyId)=>{
+    try {
+        const { email } = jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().verify(token, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.NEXTAUTH_SECRET + surveyId);
+        try {
+            // Try to decrypt first (for newer tokens)
+            const decryptedEmail = (0,_crypto__WEBPACK_IMPORTED_MODULE_3__/* .symmetricDecrypt */ .zp)(email, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.ENCRYPTION_KEY);
+            return decryptedEmail;
+        } catch  {
+            // If decryption fails, return the original email (for older tokens)
+            return email;
+        }
+    } catch (err) {
+        return null;
+    }
+};
+const verifyToken = async (token)=>{
+    // First decode to get the ID
+    const decoded = jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().decode(token);
+    const payload = decoded;
+    if (!payload) {
+        throw new Error("Token is invalid");
+    }
+    const { id } = payload;
+    if (!id) {
+        throw new Error("Token missing required field: id");
+    }
+    // Try to decrypt the ID (for newer tokens), if it fails use the ID as-is (for older tokens)
+    let decryptedId;
+    try {
+        decryptedId = (0,_crypto__WEBPACK_IMPORTED_MODULE_3__/* .symmetricDecrypt */ .zp)(id, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.ENCRYPTION_KEY);
+    } catch  {
+        decryptedId = id;
+    }
+    // If no email provided, look up the user
+    const foundUser = await _formbricks_database__WEBPACK_IMPORTED_MODULE_1__/* .prisma */ .z.user.findUnique({
+        where: {
+            id: decryptedId
+        }
+    });
+    if (!foundUser) {
+        throw new Error("User not found");
+    }
+    const userEmail = foundUser.email;
+    return {
+        id: decryptedId,
+        email: userEmail
+    };
+};
+const verifyInviteToken = (token)=>{
+    try {
+        const decoded = jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().decode(token);
+        const payload = decoded;
+        const { inviteId, email } = payload;
+        let decryptedInviteId;
+        let decryptedEmail;
+        try {
+            // Try to decrypt first (for newer tokens)
+            decryptedInviteId = (0,_crypto__WEBPACK_IMPORTED_MODULE_3__/* .symmetricDecrypt */ .zp)(inviteId, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.ENCRYPTION_KEY);
+            decryptedEmail = (0,_crypto__WEBPACK_IMPORTED_MODULE_3__/* .symmetricDecrypt */ .zp)(email, _env__WEBPACK_IMPORTED_MODULE_2__/* .env */ ._.ENCRYPTION_KEY);
+        } catch  {
+            // If decryption fails, use original values (for older tokens)
+            decryptedInviteId = inviteId;
+            decryptedEmail = email;
+        }
+        return {
+            inviteId: decryptedInviteId,
+            email: decryptedEmail
+        };
+    } catch (error) {
+        console.error(`Error verifying invite token: ${error}`);
+        throw new Error("Invalid or expired invite token");
+    }
+};
+
+
+/***/ }),
+
+/***/ 823609:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   r: () => (/* binding */ membershipCache)
+/* harmony export */ });
+/* harmony import */ var next_cache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(87863);
+/* harmony import */ var next_cache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_cache__WEBPACK_IMPORTED_MODULE_0__);
+
+const membershipCache = {
+    tag: {
+        byOrganizationId (organizationId) {
+            return `organizations-${organizationId}-memberships`;
+        },
+        byUserId (userId) {
+            return `users-${userId}-memberships`;
+        }
+    },
+    revalidate ({ organizationId, userId }) {
+        if (organizationId) {
+            (0,next_cache__WEBPACK_IMPORTED_MODULE_0__.revalidateTag)(this.tag.byOrganizationId(organizationId));
+        }
+        if (userId) {
+            (0,next_cache__WEBPACK_IMPORTED_MODULE_0__.revalidateTag)(this.tag.byUserId(userId));
+        }
+    }
+};
+
+
+/***/ }),
+
+/***/ 377968:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   $: () => (/* binding */ createMembership),
+/* harmony export */   Y: () => (/* binding */ getMembershipByUserIdOrganizationId)
+/* harmony export */ });
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(896330);
+/* harmony import */ var _prisma_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_prisma_client__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(922728);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _formbricks_database__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(527610);
+/* harmony import */ var _formbricks_types_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(733735);
+/* harmony import */ var _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(470641);
+/* harmony import */ var _formbricks_types_memberships__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(715521);
+/* harmony import */ var _cache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(794356);
+/* harmony import */ var _membership_cache__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(823609);
+/* harmony import */ var _organization_cache__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(530190);
+/* harmony import */ var _utils_validate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(860988);
+
+
+
+
+
+
+
+
+
+
+
+const getMembershipByUserIdOrganizationId = (0,react__WEBPACK_IMPORTED_MODULE_1__.cache)(async (userId, organizationId)=>(0,_cache__WEBPACK_IMPORTED_MODULE_3__/* .cache */ .P)(async ()=>{
+        (0,_utils_validate__WEBPACK_IMPORTED_MODULE_4__/* .validateInputs */ .C)([
+            userId,
+            _formbricks_types_common__WEBPACK_IMPORTED_MODULE_5__/* .ZString */ .eI
+        ], [
+            organizationId,
+            _formbricks_types_common__WEBPACK_IMPORTED_MODULE_5__/* .ZString */ .eI
+        ]);
+        try {
+            const membership = await _formbricks_database__WEBPACK_IMPORTED_MODULE_2__/* .prisma */ .z.membership.findUnique({
+                where: {
+                    userId_organizationId: {
+                        userId,
+                        organizationId
+                    }
+                }
+            });
+            if (!membership) return null;
+            return membership;
+        } catch (error) {
+            if (error instanceof _prisma_client__WEBPACK_IMPORTED_MODULE_0__.Prisma.PrismaClientKnownRequestError) {
+                console.error(error);
+                throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_6__/* .DatabaseError */ .a$(error.message);
+            }
+            throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_6__/* .UnknownError */ .Bk("Error while fetching membership");
+        }
+    }, [
+        `getMembershipByUserIdOrganizationId-${userId}-${organizationId}`
+    ], {
+        tags: [
+            _membership_cache__WEBPACK_IMPORTED_MODULE_7__/* .membershipCache */ .r.tag.byUserId(userId),
+            _membership_cache__WEBPACK_IMPORTED_MODULE_7__/* .membershipCache */ .r.tag.byOrganizationId(organizationId)
+        ]
+    })());
+const createMembership = async (organizationId, userId, data)=>{
+    (0,_utils_validate__WEBPACK_IMPORTED_MODULE_4__/* .validateInputs */ .C)([
+        organizationId,
+        _formbricks_types_common__WEBPACK_IMPORTED_MODULE_5__/* .ZString */ .eI
+    ], [
+        userId,
+        _formbricks_types_common__WEBPACK_IMPORTED_MODULE_5__/* .ZString */ .eI
+    ], [
+        data,
+        _formbricks_types_memberships__WEBPACK_IMPORTED_MODULE_8__/* .ZMembership */ .rl.partial()
+    ]);
+    try {
+        const membership = await _formbricks_database__WEBPACK_IMPORTED_MODULE_2__/* .prisma */ .z.membership.create({
+            data: {
+                userId,
+                organizationId,
+                accepted: data.accepted,
+                role: data.role
+            }
+        });
+        _organization_cache__WEBPACK_IMPORTED_MODULE_9__/* .organizationCache */ .S.revalidate({
+            userId
+        });
+        _membership_cache__WEBPACK_IMPORTED_MODULE_7__/* .membershipCache */ .r.revalidate({
+            userId,
+            organizationId
+        });
+        return membership;
+    } catch (error) {
+        if (error instanceof _prisma_client__WEBPACK_IMPORTED_MODULE_0__.Prisma.PrismaClientKnownRequestError) {
+            throw new _formbricks_types_errors__WEBPACK_IMPORTED_MODULE_6__/* .DatabaseError */ .a$(error.message);
+        }
+        throw error;
+    }
+};
+
+
+/***/ }),
+
+/***/ 888843:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   BY: () => (/* binding */ putFileToLocalStorage),
+/* harmony export */   H2: () => (/* binding */ getUploadSignedUrl),
+/* harmony export */   IT: () => (/* binding */ getLocalFile),
+/* harmony export */   Pe: () => (/* binding */ getS3File),
+/* harmony export */   Ww: () => (/* binding */ deleteFile)
+/* harmony export */ });
+/* unused harmony exports getS3Client, testS3BucketAccess, getS3UploadSignedUrl, putFile, deleteLocalFile, deleteS3File, deleteS3FilesByEnvironmentId, deleteLocalFilesByEnvironmentId */
+/* harmony import */ var _aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(191043);
+/* harmony import */ var _aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _aws_sdk_s3_presigned_post__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(741000);
+/* harmony import */ var _aws_sdk_s3_presigned_post__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_aws_sdk_s3_presigned_post__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _aws_sdk_s3_request_presigner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(531701);
+/* harmony import */ var _aws_sdk_s3_request_presigner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_aws_sdk_s3_request_presigner__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(455511);
+/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var fs_promises__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(79748);
+/* harmony import */ var fs_promises__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(fs_promises__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var mime_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(468728);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(333873);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(836919);
+/* harmony import */ var _crypto__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(549673);
+/* harmony import */ var _env__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(162437);
+
+
+
+
+
+
+
+
+
+
+// S3Client Singleton
+let s3ClientInstance = null;
+const getS3Client = ()=>{
+    if (!s3ClientInstance) {
+        const credentials = _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_ACCESS_KEY */ .Ik && _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_SECRET_KEY */ .Wg ? {
+            accessKeyId: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_ACCESS_KEY */ .Ik,
+            secretAccessKey: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_SECRET_KEY */ .Wg
+        } : undefined;
+        s3ClientInstance = new _aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0__.S3Client({
+            credentials,
+            region: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_REGION */ .Yj,
+            ..._constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_ENDPOINT_URL */ .Xc && {
+                endpoint: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_ENDPOINT_URL */ .Xc
+            },
+            forcePathStyle: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_FORCE_PATH_STYLE */ .vh
+        });
+    }
+    return s3ClientInstance;
+};
+const testS3BucketAccess = async ()=>{
+    const s3Client = getS3Client();
+    try {
+        // Attempt to retrieve metadata about the bucket
+        const headBucketCommand = new HeadBucketCommand({
+            Bucket: S3_BUCKET_NAME
+        });
+        await s3Client.send(headBucketCommand);
+        return true;
+    } catch (error) {
+        console.error(`Failed to access S3 bucket: ${error}`);
+        throw new Error(`S3 Bucket Access Test Failed: ${error}`);
+    }
+};
+const ensureDirectoryExists = async (dirPath)=>{
+    try {
+        await (0,fs_promises__WEBPACK_IMPORTED_MODULE_4__.access)(dirPath);
+    } catch (error) {
+        if (error.code === "ENOENT") {
+            await (0,fs_promises__WEBPACK_IMPORTED_MODULE_4__.mkdir)(dirPath, {
+                recursive: true
+            });
+        } else {
+            throw error;
+        }
+    }
+};
+const getS3SignedUrl = async (fileKey)=>{
+    const [_, accessType] = fileKey.split("/");
+    const expiresIn = accessType === "public" ? 60 * 60 : 10 * 60;
+    const getObjectCommand = new _aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0__.GetObjectCommand({
+        Bucket: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_BUCKET_NAME */ .MT,
+        Key: fileKey
+    });
+    try {
+        const s3Client = getS3Client();
+        return await (0,_aws_sdk_s3_request_presigner__WEBPACK_IMPORTED_MODULE_2__.getSignedUrl)(s3Client, getObjectCommand, {
+            expiresIn
+        });
+    } catch (err) {
+        throw err;
+    }
+};
+const getS3File = async (fileKey)=>{
+    const signedUrl = await getS3SignedUrl(fileKey);
+    return signedUrl;
+};
+const getLocalFile = async (filePath)=>{
+    try {
+        const safeFilePath = path__WEBPACK_IMPORTED_MODULE_6___default().resolve(process.cwd(), filePath);
+        const file = await (0,fs_promises__WEBPACK_IMPORTED_MODULE_4__.readFile)(safeFilePath);
+        let contentType = "";
+        try {
+            contentType = (0,mime_types__WEBPACK_IMPORTED_MODULE_5__.lookup)(filePath) || "";
+        } catch (err) {
+            throw err;
+        }
+        return {
+            fileBuffer: file,
+            metaData: {
+                contentType: contentType ?? ""
+            }
+        };
+    } catch (err) {
+        throw err;
+    }
+};
+// a single service for generating a signed url based on user's environment variables
+const getUploadSignedUrl = async (fileName, environmentId, fileType, accessType, isBiggerFileUploadAllowed = false)=>{
+    // add a unique id to the file name
+    const fileExtension = fileName.split(".").pop();
+    const fileNameWithoutExtension = fileName.split(".").slice(0, -1).join(".");
+    if (!fileExtension) {
+        throw new Error("File extension not found");
+    }
+    const updatedFileName = `${fileNameWithoutExtension}--fid--${(0,crypto__WEBPACK_IMPORTED_MODULE_3__.randomUUID)()}.${fileExtension}`;
+    // handle the local storage case first
+    if (!(0,_constants__WEBPACK_IMPORTED_MODULE_7__/* .isS3Configured */ .$Y)()) {
+        try {
+            const { signature, timestamp, uuid } = (0,_crypto__WEBPACK_IMPORTED_MODULE_8__/* .generateLocalSignedUrl */ .C7)(updatedFileName, environmentId, fileType);
+            return {
+                signedUrl: accessType === "private" ? new URL(`${_constants__WEBPACK_IMPORTED_MODULE_7__/* .WEBAPP_URL */ .YW}/api/v1/client/${environmentId}/storage/local`).href : new URL(`${_constants__WEBPACK_IMPORTED_MODULE_7__/* .WEBAPP_URL */ .YW}/api/v1/management/storage/local`).href,
+                signingData: {
+                    signature,
+                    timestamp,
+                    uuid
+                },
+                updatedFileName,
+                fileUrl: new URL(`${_constants__WEBPACK_IMPORTED_MODULE_7__/* .WEBAPP_URL */ .YW}/storage/${environmentId}/${accessType}/${updatedFileName}`).href
+            };
+        } catch (err) {
+            throw err;
+        }
+    }
+    try {
+        const { presignedFields, signedUrl } = await getS3UploadSignedUrl(updatedFileName, fileType, accessType, environmentId, isBiggerFileUploadAllowed);
+        return {
+            signedUrl,
+            presignedFields,
+            fileUrl: new URL(`${_constants__WEBPACK_IMPORTED_MODULE_7__/* .WEBAPP_URL */ .YW}/storage/${environmentId}/${accessType}/${updatedFileName}`).href
+        };
+    } catch (err) {
+        throw err;
+    }
+};
+const getS3UploadSignedUrl = async (fileName, contentType, accessType, environmentId, isBiggerFileUploadAllowed = false)=>{
+    const maxSize = _constants__WEBPACK_IMPORTED_MODULE_7__/* .IS_FORMBRICKS_CLOUD */ .Si ? isBiggerFileUploadAllowed ? _constants__WEBPACK_IMPORTED_MODULE_7__/* .MAX_SIZES */ .gB.big : _constants__WEBPACK_IMPORTED_MODULE_7__/* .MAX_SIZES */ .gB.standard : Infinity;
+    const postConditions = _constants__WEBPACK_IMPORTED_MODULE_7__/* .IS_FORMBRICKS_CLOUD */ .Si ? [
+        [
+            "content-length-range",
+            0,
+            maxSize
+        ]
+    ] : undefined;
+    try {
+        const s3Client = getS3Client();
+        const { fields, url } = await (0,_aws_sdk_s3_presigned_post__WEBPACK_IMPORTED_MODULE_1__.createPresignedPost)(s3Client, {
+            Expires: 10 * 60,
+            Bucket: _env__WEBPACK_IMPORTED_MODULE_9__/* .env */ ._.S3_BUCKET_NAME,
+            Key: `${environmentId}/${accessType}/${fileName}`,
+            Fields: {
+                "Content-Type": contentType,
+                "Content-Encoding": "base64"
+            },
+            Conditions: postConditions
+        });
+        return {
+            signedUrl: url,
+            presignedFields: fields
+        };
+    } catch (err) {
+        throw err;
+    }
+};
+const putFileToLocalStorage = async (fileName, fileBuffer, accessType, environmentId, rootDir, isBiggerFileUploadAllowed = false)=>{
+    try {
+        await ensureDirectoryExists(`${rootDir}/${environmentId}/${accessType}`);
+        const uploadPath = `${rootDir}/${environmentId}/${accessType}/${fileName}`;
+        const buffer = Buffer.from(fileBuffer);
+        const bufferBytes = buffer.byteLength;
+        const maxSize = _constants__WEBPACK_IMPORTED_MODULE_7__/* .IS_FORMBRICKS_CLOUD */ .Si ? isBiggerFileUploadAllowed ? _constants__WEBPACK_IMPORTED_MODULE_7__/* .MAX_SIZES */ .gB.big : _constants__WEBPACK_IMPORTED_MODULE_7__/* .MAX_SIZES */ .gB.standard : Infinity;
+        if (bufferBytes > maxSize) {
+            const err = new Error(`File size exceeds the ${maxSize / (1024 * 1024)} MB limit`);
+            err.name = "FileTooLargeError";
+            throw err;
+        }
+        await (0,fs_promises__WEBPACK_IMPORTED_MODULE_4__.writeFile)(uploadPath, buffer);
+    } catch (err) {
+        throw err;
+    }
+};
+// a single service to put file in the storage(local or S3), based on the S3 configuration
+const putFile = async (fileName, fileBuffer, accessType, environmentId)=>{
+    try {
+        if (!isS3Configured()) {
+            await putFileToLocalStorage(fileName, fileBuffer, accessType, environmentId, UPLOADS_DIR);
+            return {
+                success: true,
+                message: "File uploaded"
+            };
+        } else {
+            const input = {
+                Body: fileBuffer,
+                Bucket: S3_BUCKET_NAME,
+                Key: `${environmentId}/${accessType}/${fileName}`
+            };
+            const command = new PutObjectCommand(input);
+            const s3Client = getS3Client();
+            await s3Client.send(command);
+            return {
+                success: true,
+                message: "File uploaded"
+            };
+        }
+    } catch (err) {
+        throw err;
+    }
+};
+const deleteFile = async (environmentId, accessType, fileName)=>{
+    if (!(0,_constants__WEBPACK_IMPORTED_MODULE_7__/* .isS3Configured */ .$Y)()) {
+        try {
+            await deleteLocalFile(path__WEBPACK_IMPORTED_MODULE_6___default().join(_constants__WEBPACK_IMPORTED_MODULE_7__/* .UPLOADS_DIR */ .xG, environmentId, accessType, fileName));
+            return {
+                success: true,
+                message: "File deleted"
+            };
+        } catch (err) {
+            if (err.code !== "ENOENT") {
+                return {
+                    success: false,
+                    message: err.message ?? "Something went wrong"
+                };
+            }
+            return {
+                success: false,
+                message: "File not found",
+                code: 404
+            };
+        }
+    }
+    try {
+        await deleteS3File(`${environmentId}/${accessType}/${fileName}`);
+        return {
+            success: true,
+            message: "File deleted"
+        };
+    } catch (err) {
+        if (err.name === "NoSuchKey") {
+            return {
+                success: false,
+                message: "File not found",
+                code: 404
+            };
+        } else {
+            return {
+                success: false,
+                message: err.message ?? "Something went wrong"
+            };
+        }
+    }
+};
+const deleteLocalFile = async (filePath)=>{
+    try {
+        await (0,fs_promises__WEBPACK_IMPORTED_MODULE_4__.unlink)(filePath);
+    } catch (err) {
+        throw err;
+    }
+};
+const deleteS3File = async (fileKey)=>{
+    const deleteObjectCommand = new _aws_sdk_client_s3__WEBPACK_IMPORTED_MODULE_0__.DeleteObjectCommand({
+        Bucket: _constants__WEBPACK_IMPORTED_MODULE_7__/* .S3_BUCKET_NAME */ .MT,
+        Key: fileKey
+    });
+    try {
+        const s3Client = getS3Client();
+        await s3Client.send(deleteObjectCommand);
+    } catch (err) {
+        throw err;
+    }
+};
+const deleteS3FilesByEnvironmentId = async (environmentId)=>{
+    try {
+        // List all objects in the bucket with the prefix of environmentId
+        const s3Client = getS3Client();
+        const listObjectsOutput = await s3Client.send(new ListObjectsCommand({
+            Bucket: S3_BUCKET_NAME,
+            Prefix: environmentId
+        }));
+        if (listObjectsOutput.Contents) {
+            const objectsToDelete = listObjectsOutput.Contents.map((obj)=>{
+                return {
+                    Key: obj.Key
+                };
+            });
+            if (!objectsToDelete.length) {
+                // no objects to delete
+                return null;
+            }
+            // Delete the objects
+            await s3Client.send(new DeleteObjectsCommand({
+                Bucket: S3_BUCKET_NAME,
+                Delete: {
+                    Objects: objectsToDelete
+                }
+            }));
+        } else {
+            // no objects to delete
+            return null;
+        }
+    } catch (err) {
+        throw err;
+    }
+};
+const deleteLocalFilesByEnvironmentId = async (environmentId)=>{
+    const dirPath = join(UPLOADS_DIR, environmentId);
+    try {
+        await ensureDirectoryExists(dirPath);
+        await rmdir(dirPath, {
+            recursive: true
+        });
+    } catch (err) {
+        throw err;
+    }
+};
+
+
+/***/ }),
+
+/***/ 615572:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   $: () => (/* binding */ findMatchingLocale)
+/* harmony export */ });
+/* harmony import */ var next_headers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(680255);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(836919);
+
+
+const findMatchingLocale = async ()=>{
+    const headersList = await (0,next_headers__WEBPACK_IMPORTED_MODULE_0__.headers)();
+    const acceptLanguage = headersList.get("accept-language");
+    const userLocales = acceptLanguage?.split(",");
+    if (!userLocales) {
+        return _constants__WEBPACK_IMPORTED_MODULE_1__/* .DEFAULT_LOCALE */ .Xn;
+    }
+    // First, try to find an exact match without normalization
+    for (const userLocale of userLocales){
+        const exactMatch = _constants__WEBPACK_IMPORTED_MODULE_1__/* .AVAILABLE_LOCALES */ .SC.find((locale)=>locale === userLocale);
+        if (exactMatch) return exactMatch;
+    }
+    // If no exact match is found, try matching with normalization
+    const normalizedAvailableLocales = _constants__WEBPACK_IMPORTED_MODULE_1__/* .AVAILABLE_LOCALES */ .SC.map((locale)=>locale.toLowerCase().split("-")[0]);
+    for (const userLocale of userLocales){
+        const normalizedUserLocale = userLocale.toLowerCase().split("-")[0];
+        const matchedIndex = normalizedAvailableLocales.findIndex((locale)=>locale.startsWith(normalizedUserLocale));
+        if (matchedIndex !== -1) return _constants__WEBPACK_IMPORTED_MODULE_1__/* .AVAILABLE_LOCALES */ .SC[matchedIndex];
+    }
+    return _constants__WEBPACK_IMPORTED_MODULE_1__/* .DEFAULT_LOCALE */ .Xn;
+};
+
+
+/***/ }),
+
+/***/ 715521:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   mp: () => (/* binding */ ZOrganizationRole),
+/* harmony export */   rl: () => (/* binding */ ZMembership)
+/* harmony export */ });
+/* unused harmony exports ZMembershipRole, ZMember, ZMembershipUpdateInput */
+/* harmony import */ var zod__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(545198);
+
+const ZMembershipRole = zod__WEBPACK_IMPORTED_MODULE_0__.z.enum([
+    "owner",
+    "admin",
+    "editor",
+    "developer",
+    "viewer"
+]);
+const ZOrganizationRole = zod__WEBPACK_IMPORTED_MODULE_0__.z.enum([
+    "owner",
+    "manager",
+    "member",
+    "billing"
+]);
+const ZMembership = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    organizationId: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+    userId: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+    accepted: zod__WEBPACK_IMPORTED_MODULE_0__.z.boolean(),
+    role: ZOrganizationRole
+});
+const ZMember = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    name: zod__WEBPACK_IMPORTED_MODULE_0__.z.string().nullable(),
+    email: zod__WEBPACK_IMPORTED_MODULE_0__.z.string().email(),
+    userId: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+    accepted: zod__WEBPACK_IMPORTED_MODULE_0__.z.boolean(),
+    role: ZOrganizationRole
+});
+const ZMembershipUpdateInput = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    role: ZOrganizationRole
+});
+
+
+/***/ }),
+
+/***/ 3929:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Q3: () => (/* binding */ ZUploadFileConfig),
+/* harmony export */   _k: () => (/* binding */ ZStorageRetrievalParams)
+/* harmony export */ });
+/* unused harmony export ZAccessType */
+/* harmony import */ var zod__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(545198);
+
+const ZAccessType = zod__WEBPACK_IMPORTED_MODULE_0__.z.enum([
+    "public",
+    "private"
+]);
+const ZStorageRetrievalParams = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    fileName: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+    environmentId: zod__WEBPACK_IMPORTED_MODULE_0__.z.string().cuid2(),
+    accessType: ZAccessType
+});
+const ZUploadFileConfig = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    allowedFileExtensions: zod__WEBPACK_IMPORTED_MODULE_0__.z.array(zod__WEBPACK_IMPORTED_MODULE_0__.z.string()).optional(),
+    surveyId: zod__WEBPACK_IMPORTED_MODULE_0__.z.string().optional()
+});
+const ZUploadFileResponse = zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+    data: zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+        signedUrl: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+        fileUrl: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+        signingData: zod__WEBPACK_IMPORTED_MODULE_0__.z.object({
+            signature: zod__WEBPACK_IMPORTED_MODULE_0__.z.string(),
+            timestamp: zod__WEBPACK_IMPORTED_MODULE_0__.z.number(),
+            uuid: zod__WEBPACK_IMPORTED_MODULE_0__.z.string()
+        }).nullable(),
+        presignedFields: zod__WEBPACK_IMPORTED_MODULE_0__.z.record(zod__WEBPACK_IMPORTED_MODULE_0__.z.string()).optional(),
+        updatedFileName: zod__WEBPACK_IMPORTED_MODULE_0__.z.string()
+    })
+});
+
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../../../../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, [8079,3073,7863,5069,255,9759,8728,3687], () => (__webpack_exec__(752296)));
+module.exports = __webpack_exports__;
+
+})();
